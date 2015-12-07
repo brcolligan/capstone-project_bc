@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class NewLoanController {
 
-		@RequestMapping( path={"", "/", "/newLoan"} )
+		@RequestMapping( path={"", "/", "/addTools"} )
 		public String showInventoryList() {	
 			return "inventoryList";  
 		}
@@ -15,12 +15,6 @@ public class NewLoanController {
 		@RequestMapping( path={"", "/", "/viewToolLoan"} )
 		public String viewLoan() {
 			return "loanCheckout";  
-		}
-		
-		
-		@RequestMapping( path={"", "/", "/addMoreTools"} )
-		public String addMoreTools() {
-			return "inventoryList";  
 		}
 		
 		
