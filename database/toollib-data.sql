@@ -109,6 +109,8 @@ INSERT INTO tool(tool_id, name, tool_category_id, loan_period_in_days, descripti
 INSERT INTO tool(tool_id, name, tool_category_id, loan_period_in_days, description) VALUES(99,'Router',1,7,'Used to rout out (hollow out) an area. Mainly used in woodworking');
 INSERT INTO tool(tool_id, name, tool_category_id, loan_period_in_days, description) VALUES(100,'Router Guide ',3,7,'Used to guide a router to make precise cuts and shapes');
 
+SELECT setval('seq_tool_id', 100);
+
 INSERT INTO tool_inventory VALUES (1, 4);
 INSERT INTO tool_inventory VALUES (2, 5);
 INSERT INTO tool_inventory VALUES (3, 6);
@@ -427,5 +429,7 @@ INSERT INTO tool_inventory VALUES (315, 95);
 INSERT INTO tool_inventory VALUES (316, 96);
 INSERT INTO tool_inventory VALUES (317, 98);
 INSERT INTO tool_inventory VALUES (318, 100);
+
+SELECT setval('seq_tool_inventory_id', 318);
 
 COMMIT;
