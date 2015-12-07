@@ -26,4 +26,19 @@ CREATE TABLE tool_inventory (
 
 CREATE SEQUENCE seq_tool_inventory_id;
 
+
+CREATE TABLE loan (
+	loan_id integer primary key,
+	inventory_id integer not null references tool_inventory(tool_inventory_id),
+	loan_start_date timestamp,
+	loan_due_date timestamp,
+	loan_end_date timestamp,
+	late_fee real,
+	maintenance_fee real,
+	cleaning_fee real
+);
+
+CREATE SEQUENCE seq_loan_id;
+
+
 COMMIT;
