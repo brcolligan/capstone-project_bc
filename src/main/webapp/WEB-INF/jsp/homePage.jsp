@@ -18,11 +18,16 @@
 
 
 <div>
+<form action="/newLoan" method="get">
 <button type="button">New Loan</button>
+</form>
 </div>
 <div>
+<form action="/existingLoan" method="get">
 <button type="button">Existing Loan</button>
+</form>
 </div>
+
 
 	
 	

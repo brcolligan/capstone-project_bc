@@ -23,7 +23,7 @@ public class NewLoanController {
 
 		@RequestMapping( path={"/addTools"} )
 		public String showInventoryList(Map <String, Object> model) {
-			List <Tool> toolList = loanDAO.getListofAvailableTools();
+			List <Tool> toolList = loanDAO.getListOfAvailableTools();
 			model.put("toolList", toolList);
 			return "inventoryList";  
 		}
