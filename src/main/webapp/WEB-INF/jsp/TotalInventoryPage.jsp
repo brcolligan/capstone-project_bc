@@ -20,20 +20,18 @@
     
     <ul class="inventoryList">
         
-        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus">  <%-- The <c:forEach> tag is documented on page 447 of Head First Servlets --%>
-        
-            <hr>
-            <div>${tool}</div>
-           <c:url value="/newLoan" var="addToShopCartURL">
-            
-            
-            
-            
-                <c:param name="topicId" value="${topic.id}" />      <%-- adding query string parameters using <c:url> is documented on page 466 of Head First Servlets --%>
+        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus">  
+       
+            <div>
+            	${tool}
+            <c:url value="/addToCart" var="addToCartURL">
+			    <c:param name="tool_id" value="${tool.tool_id}" />    
+                <img src="/webapp/img/shopping_cart.png"/></a>      <!--http request surrounds image, to make shopping cart a button -->
             </c:url>
-        /capstone-project/src/main/
-                        <a href="newLoan"><img src="/webapp/img/shopping_cart.png" /></a>  <%-- We're using a c:out tag here to HTML encode the title and prevent a possible XSS vulnerability --%>
-            </li>
+            
+
+                   <hr>
+            </div>
         </c:forEach>
         
     </ul>
