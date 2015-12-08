@@ -120,7 +120,7 @@ public class LoanDAO {
 			
 		Tool newTool = new Tool(null, null, 0, 0, 0, null);
 		
-		String selectSQL = "SELECT * FROM tool LEFT JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id WHERE tool_available = 'T';";
+		String selectSQL = "SELECT * FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id WHERE tool_available = 'T';";
 		
 		jdbcTemplate.update(selectSQL);
 		 

@@ -30,10 +30,24 @@ public class ExampleIntegrationTest extends IntegrationTestBase {
 		assertNotNull(dataSource);
 	}
 	
+	
 	@Test
 	public void database_connectivity_works() {
 		SqlRowSet results = jdbcTemplate.queryForRowSet("SELECT 1 AS value");
 		results.next();
 		assertEquals(1, results.getInt("value"));
 	}
+	
+	@Test
+	public void loan_records_can_be_saved_and_found() {
+		Loan expectedLoan = new Loan(5, 0, null, null, null, null, null, null, null, null);
+		
+		Loan resultLoan = new Loan(0, 0, null, null, null, null, null, null, null, null);
+			
+		
+		
+		assertEquals(resultLoan, expectedLoan);
+	}
+	
+	
 }
