@@ -36,4 +36,31 @@ public class Tool {
 	public String getToolCategoryName() {
 		return toolCategoryName;
 	}
+	
+	
+	
+	public void setToolId(int toolId) {
+		this.toolId = toolId;
+	}
+	public void setToolName(String toolName) {
+		this.toolName = toolName;
+	}
+	
+	public void setToolDescription(String toolDescription) {
+		this.toolDescription = toolDescription;
+	}
+	
+	public void setToolLoanPeriod(int toolLoanPeriod) {
+		this.toolLoanPeriod = toolLoanPeriod;
+	}
+	
+	public void setToolCategoryId(int toolCategoryId) {
+		this.toolCategoryId = toolCategoryId;
+	}
+	
+	public void setToolCategoryName(String toolCategoryName) {
+		this.toolCategoryName = toolCategoryName;
+	}
+	
+	
 }
