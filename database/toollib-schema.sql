@@ -21,7 +21,8 @@ CREATE SEQUENCE seq_tool_id;
 
 CREATE TABLE tool_inventory (
     tool_inventory_id integer primary key,
-    tool_id integer not null references tool(tool_id)
+    tool_id integer not null references tool(tool_id),
+    tool_available boolean default 'T'
 );
 
 CREATE SEQUENCE seq_tool_inventory_id;
@@ -30,6 +31,7 @@ CREATE SEQUENCE seq_tool_inventory_id;
 CREATE TABLE loan (
 	loan_id integer primary key,
 	inventory_id integer not null references tool_inventory(tool_inventory_id),
+	tool_name varchar(64) not null,
 	loan_start_date timestamp,
 	loan_due_date timestamp,
 	loan_end_date timestamp,

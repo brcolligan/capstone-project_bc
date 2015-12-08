@@ -69,4 +69,46 @@ public class Loan {
 		return phoneNumber;
 	}
 
+	
+	
+	public void setLoanId(int loanId) {
+		this.loanId = loanId;
+	}
+	
+	public void setInventoryId(int inventory_id) {
+		this.inventory_id = inventory_id;
+	}
+	
+	public void setToolLoaned(String toolLoaned) {
+		this.toolLoaned = toolLoaned;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public void setDriversLicense(String driversLicense) {
+		this.driversLicense = driversLicense;
+	}
+	
+	public void setExpectedReturn(Date expectedReturn) {
+		this.expectedReturn = expectedReturn;
+	}
+	
+	public void setDateOfLoan(Date dateOfLoan) {
+		this.dateOfLoan = dateOfLoan;
+	}
+	
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
 }
