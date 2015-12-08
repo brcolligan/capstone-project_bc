@@ -3,7 +3,6 @@ package com.techelevator.toolLibrary.model;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -118,22 +117,19 @@ public class LoanDAO {
 	
 	public List<Tool> getListOfAvailableTools(){
 		List<Tool> availableToolList = new ArrayList<>();
-			
-		Tool newTool = new Tool(null, null, 0, 0, 0, null);
-		
-		String selectSQL = "SELECT * FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id WHERE tool_available = 'T';";
-		
-		jdbcTemplate.update(selectSQL);
+
+		String selectSQL =  "SELECT tool.tool_id as toolId, tool.name as toolName, tool.tool_category_id as toolCategoryId, tool.description as toolDescription, tool.loan_period_in_days as toolLoanPeriod, tool_category.name as toolCategoryName FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id inner join tool_category on tool.tool_category_id = tool_category.tool_category_id WHERE tool_available = 'T'";;
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		if(results.next()) {
-			newTool.setToolCategoryId(results.getInt("toolCategoryId"));
-			newTool.setToolCategoryName(results.getString("toolCategoryName"));
-			newTool.setToolDescription(results.getString("toolDescription"));
-			newTool.setToolId(results.getInt("toolId"));		
-			newTool.setToolLoanPeriod(results.getInt("toolLoanPeriod"));
-			newTool.setToolName(results.getString("toolName"));
-					
+			String toolName = results.getString("toolName");
+			String toolDescription = results.getString("toolDescription");
+			int toolLoanPeriod = results.getInt("toolLoanPeriod");
+			int toolId = results.getInt("toolId");		
+			int toolCategoryId = results.getInt("toolCategoryId");
+			String toolCategoryName = results.getString("toolCategoryName");
+			
+			Tool newTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName);
 			availableToolList.add(newTool);
 		}		
 		return availableToolList;

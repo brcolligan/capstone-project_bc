@@ -20,16 +20,9 @@
         
         <c:forEach var="tool" items="${toolList}" varStatus="loopStatus">  <%-- The <c:forEach> tag is documented on page 447 of Head First Servlets --%>
 
-            <c:choose>
-                <c:when test="${loopStatus.count % 2 == 0}">
-                    <c:set var="itemClass" value="even" />     <%-- The <c:set> tag is documented on page 455 of Head First Servlets --%>
-                </c:when>
-                <c:otherwise>
-                    <c:set var="itemClass" value="odd" />
-                </c:otherwise>
-            </c:choose>
-            <li class="${itemClass}">
-                <a href="${loanReturnPage}"><c:out value="${tool.id}" /></a>  <%-- We're using a c:out tag here to HTML encode the title and prevent a possible XSS vulnerability --%>
+          
+            <li >
+                <a href="${loanReturnPage}"><c:out value="${tool.toolName}" /></a>  <%-- We're using a c:out tag here to HTML encode the title and prevent a possible XSS vulnerability --%>
             </li>
         </c:forEach>
         

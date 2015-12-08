@@ -1,6 +1,7 @@
 package com.techelevator.toolLibrary.controller;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.Tool;
+
 import com.techelevator.toolLibrary.model.LoanDAO;
 
 @Controller
@@ -21,8 +23,9 @@ public class NewLoanController {
 		this.loanDAO = loanDAO;
 	}
 
-		@RequestMapping( path={"/addTools"} )
+		@RequestMapping( path="/addTools")
 		public String showInventoryList(Map <String, Object> model) {
+			
 			List <Tool> toolList = loanDAO.getListOfAvailableTools();
 			model.put("toolList", toolList);
 			return "inventoryList";  
