@@ -9,34 +9,23 @@
 <link rel="stylesheet" type="text/css" href="${cssURL}">
 <title>Loan Return Page</title>
 </head>
-<c:url value="/" var="contextRoot" />
+
 
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp">
-	   <jsp:param name="pageTitle" value="Active Loans" />
+	   <jsp:param name="pageTitle" value="Return Loan" />
 	</jsp:include>
 
 
-<div>
-<p> 
-display
-return date
-customer name
-phone
-
-Tool Return Details
-Tool
-Rental Date
-Due Date
-
-Fees and Fines
-Late Fees
-Maintence fees
-Cleaning Fee
-Total
-</p>
-
-</div>
+ <ol class="loanList">
+        <c:forEach var="loan" items="${loanById}" varStatus="loopStatus">           
+            <c:url value="/processedReturn" var="loanReturn">
+                <c:param name="loanReturnPage" value="${loan.id}" /> 
+            </c:url>
+        
+        </c:forEach>
+        
+    </ol>
 
 	
 	
