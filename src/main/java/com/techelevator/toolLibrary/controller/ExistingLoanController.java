@@ -36,7 +36,7 @@ public class ExistingLoanController {
 		     Map<String, Object> model ) {
 		Loan loanById = loanDAO.getLoanById(loanId);
 		model.put("loanById", loanById);
-		return "removeFromLoanPage"; 
+		return "removeFromLoan"; 
 	}
 	
 	

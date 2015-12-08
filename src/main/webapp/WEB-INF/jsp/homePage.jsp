@@ -18,9 +18,7 @@
 
 
 <div>
-<form action="/newLoan" method="get">
-<button type="button">New Loan</button>
-</form>
+<a href="<c:url value="/addTools"/>">new loan</a>
 </div>
 <div>
 <form action="/existingLoan" method="get">

@@ -30,26 +30,26 @@ public class NewLoanController {
 			
 		@RequestMapping( path={"/addToCart"} )
 		public String addToCart(@RequestParam("toolId") int tool_id) {
-			List <Tool> shoppingCart = 
+			 
 			return "inventoryList";  
 		}
 		
 		
-		@RequestMapping( path={"/viewToolLoan"} )
+		@RequestMapping( path={"/viewCart"} )
 		public String viewLoan() {
-			return "loanCheckout";  
+			return "cartView";  
 		}
 		
 		
 		@RequestMapping( path={"/checkoutTools"} )
 		public String processLoan() {
-			return "processLoan";  
+			return "loanProcess";  
 		}
 		
 		
 		@RequestMapping( path={"/reviewLoan"} )
 		public String reviewLoan() {
-			return "reviewProcessedLoan";  
+			return "processedLoanReview";  
 		}
 
 		
