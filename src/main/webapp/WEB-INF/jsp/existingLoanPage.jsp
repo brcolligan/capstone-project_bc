@@ -19,7 +19,7 @@
 
  <ol class="loanList">
         <c:forEach var="loan" items="${loanList}" varStatus="loopStatus">           
-            <c:url value="/existingLoans" var="existingLoanList">
+            <c:url value="/loanReturnPage" var="existingLoanList">
                 <c:param name="existingLoanList" value="${loan.id}" /> 
             </c:url>
         
