@@ -33,6 +33,10 @@ CREATE TABLE loan (
 	loan_start_date timestamp,
 	loan_due_date timestamp,
 	loan_end_date timestamp,
+	user_first_name varchar(50),
+	user_last_name varchar(50),
+	user_license_num varchar(20),
+	user_phone_num varchar(10),
 	late_fee real,
 	maintenance_fee real,
 	cleaning_fee real
