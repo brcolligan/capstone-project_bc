@@ -11,15 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.techelevator.ShoppingCartItem;
-import com.techelevator.Tool;
-
 import com.techelevator.toolLibrary.model.LoanDAO;
+import com.techelevator.toolLibrary.model.Tool;
 
 @Controller
 public class NewLoanController {
 	
 	private LoanDAO loanDAO;
+	public List<Tool> shoppingCart = new ArrayList <>();
 	
 	
 	
@@ -36,17 +35,17 @@ public class NewLoanController {
 			return "inventoryList";  
 		}
 			
+		
 		@RequestMapping( path={"/addToCart"} )
 		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, Map<String, Object> model) {
-			
-			List<Tool> shoppingCart = new ArrayList <>();
-			
-			Tool addTool = loanDAO.getToolByInventoryId(toolInventoryId);
-			model.put("addTool", addTool);
-			shoppingCart.add(addTool);
+		
+			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
+			shoppingCart.add(addedTool);
 			model.put("shoppingCart", shoppingCart);
-			return "redirect:/addTools";  
+			
+			return "cartView";  
 		}
+		
 		
 		@RequestMapping( path={"/viewCart"} )
 		public String viewLoan() {

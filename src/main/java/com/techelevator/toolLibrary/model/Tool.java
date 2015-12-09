@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.toolLibrary.model;
 
 public class Tool {
 	

@@ -19,26 +19,24 @@
     
     
     <table style="width:40%">
-        <th>Tool</th><th>Category</th><th>Return Date</th>
-	        <c:forEach var="tool" items="${shoppingCart}" varStatus="loopStatus"> 
+        <th>Tool</th><th>Category</th><th>Inventory Id</th>
+	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus"> 
 		  
 		        <tr>
-		           <td><c:out value="${tool.toolName}"/></td>
-		           <td><c:out value="${tool.toolId}"/></td>
-		           <td><c:out value="${tool.toolInventoryId}"/></td>
+		           <td><c:out value="${addedTool.toolName}"/></td>
+		           <td><c:out value="${addedTool.toolId}"/></td>
+		           <td><c:out value="${addedTool.toolInventoryId}"/></td>
 		           <td><a href="${addItemURL}"><c:out value="Remove From Cart"/> </a></td>
 	        	</tr>
 			</c:forEach>
         </table>
     
 
-	<c:url value="/addTools" var="addToolsURL"> 
-	<div>
-		<form action=${addToolsURL} method="get">
-			<button type="button">Add more tools to your cart</button>
-		</form>
-	</div>
+<c:url value="/addTools" var="addTools">
 	</c:url>
+	<div>
+		<a href="${addTools}">add more items</a>
+	</div>
 
 <br> <br>
 

@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.techelevator.toolLibrary.model.Loan;
+
 /* Integration tests should extend com.techelevator.IntegrationTestBase.  This super-class
  * takes care of all of the Spring configuration and JDBC connection management. */
 public class ExampleIntegrationTest extends IntegrationTestBase {
