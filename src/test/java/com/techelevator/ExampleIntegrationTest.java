@@ -57,8 +57,18 @@ public class ExampleIntegrationTest extends IntegrationTestBase {
 		Date dueDate = new Date();
 		Date endDate = new Date();
 		
-		Loan expectedLoan = new Loan(13, "House Broom", startDate, dueDate, endDate, "John", "Smith", "4409876543", "RT98765");
+		Loan expectedLoan = new Loan();
 		
+		expectedLoan.setDateOfLoan(startDate);
+		expectedLoan.setEndDate(endDate);
+		expectedLoan.setExpectedReturn(dueDate);
+		expectedLoan.setDriversLicense("RT98765");
+		expectedLoan.setFirstName("John");
+		expectedLoan.setInventoryId(13);
+		expectedLoan.setLastName("Smith");
+		expectedLoan.setPhoneNumber("4409876543");
+		expectedLoan.setToolLoaned("House Broom");
+
 			dao.saveLoanItem(expectedLoan);
 			int loanId = expectedLoan.getLoanId();
 			
@@ -68,9 +78,6 @@ public class ExampleIntegrationTest extends IntegrationTestBase {
 			assertEquals(expectedLoan.getInventoryId(), resultLoan.getInventoryId());
 			assertEquals(expectedLoan.getFirstName(), resultLoan.getFirstName());
 			assertEquals(expectedLoan.getToolLoaned(), resultLoan.getToolLoaned());
-	
-			
-			
-	}
-	
+		
+	}	
 }
