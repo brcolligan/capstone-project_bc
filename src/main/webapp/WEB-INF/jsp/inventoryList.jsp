@@ -16,14 +16,20 @@
     
     <h2>Inventory</h2>
     
-      <ol class="inventoryList">
+      <ol>
         
-        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus">  <%-- The <c:forEach> tag is documented on page 447 of Head First Servlets --%>
-
+        <c:forEach var="tool" items="${toolList}"> 
+        <c:url value="/addToCart" var="addItemURL">
+                <c:param name="toolId" value="${tool.toolId}" />
+            </c:url>
           
-            <li >
-                <a href="${loanReturnPage}"><c:out value="${tool.toolName}" /></a>  <%-- We're using a c:out tag here to HTML encode the title and prevent a possible XSS vulnerability --%>
+            <li>
+                <a href="${addItemURL}"><c:out value="${tool.toolName}"/> 
+                						<c:out value="${tool.toolCategoryName}"/> 
+                						<c:out value="${tool.toolId}"/> 
+                						<c:out value="${tool.toolLoanPeriod}"/></a> 
             </li>
+            
         </c:forEach>
         
     </ol>
