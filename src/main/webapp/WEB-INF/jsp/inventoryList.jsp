@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -6,40 +6,50 @@
 <meta charset="UTF-8">
 <c:url value="/css/site.css" var="cssURL" />
 <link rel="stylesheet" type="text/css" href="${cssURL}">
-<title>Available Inventory Page</title>
+<title>INVENTORY LIST</title>
 </head>
 
 <body>
-    <jsp:include page="/WEB-INF/jsp/header.jsp">
-       <jsp:param name="pageTitle" value="Total Inventory Page" />
-    </jsp:include>
-    
-    <h2>Inventory</h2>
-    
-      <ol class="inventoryList">
-        
-        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus">  <%-- The <c:forEach> tag is documented on page 447 of Head First Servlets --%>
+	<jsp:include page="/WEB-INF/jsp/header.jsp">
+		<jsp:param name="pageTitle" value="Total Inventory Page" />
+	</jsp:include>
 
-            <c:choose>
-                <c:when test="${loopStatus.count % 2 == 0}">
-                    <c:set var="itemClass" value="even" />     <%-- The <c:set> tag is documented on page 455 of Head First Servlets --%>
-                </c:when>
-                <c:otherwise>
-                    <c:set var="itemClass" value="odd" />
-                </c:otherwise>
-            </c:choose>
-            <li class="${itemClass}">
-                <a href="${loanReturnPage}"><c:out value="${tool.id}" /></a>  <%-- We're using a c:out tag here to HTML encode the title and prevent a possible XSS vulnerability --%>
-            </li>
-        </c:forEach>
-        
-    </ol>
-    
-         
-    
-                 
-                 
-  			 
+
+
+	<h2>Inventory</h2>
+
+
+	<c:url value="/addToCart" var="addToCartURL">
+		<c:param name="tool_id" value="${tool.tool_id}" />
+	</c:url>
+
+	<c:url value="/img" var="imgRoot" />
+
+
+	<ul class="inventoryList">
+		<c:forEach var="tool" items="${toolList}" varStatus="loopStatus">
+			<div>
+				${tool} <a href="${addToCartURL}"> 
+				<img src="${imgRoot}/shopping_cart.png" />
+				</a>
+				<hr>
+			</div>
+		</c:forEach>
+	</ul>
+
+	<br>
+	<br>
+
+	<c:url value="/viewCart" var="cartViewURL" />
+
+	<div>
+		<form action=${cartViewURL} method="get">
+			<button type="button">Review Cart Contents</button>
+		</form>
+	</div>
+
+
+	<!--  <jsp:include page="/WEB-INF/jsp/footer.jsp" />    -->
 </body>
 
 </html>
