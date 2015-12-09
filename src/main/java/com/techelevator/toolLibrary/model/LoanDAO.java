@@ -2,6 +2,7 @@ package com.techelevator.toolLibrary.model;
 
 import javax.sql.DataSource;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -116,12 +117,12 @@ public class LoanDAO {
 	
 	
 	public List<Tool> getListOfAvailableTools(){
+		
+		Tool foundTool = null;
 		List<Tool> availableToolList = new ArrayList<>();
-
-		String selectSQL =  "SELECT tool.tool_id as toolId, tool.name as toolName, tool.tool_category_id as toolCategoryId, tool.description as toolDescription, tool.loan_period_in_days as toolLoanPeriod, tool_category.name as toolCategoryName FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id inner join tool_category on tool.tool_category_id = tool_category.tool_category_id WHERE tool_available = 'T'";;
-		 
+		String selectSQL =  "SELECT tool.tool_id as toolId, tool.name as toolName, tool.tool_category_id as toolCategoryId, tool.description as toolDescription, tool.loan_period_in_days as toolLoanPeriod, tool_category.name as toolCategoryName FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id inner join tool_category on tool.tool_category_id = tool_category.tool_category_id WHERE tool_available = 'T'";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
-		if(results.next()) {
+		while(results.next()) {
 			String toolName = results.getString("toolName");
 			String toolDescription = results.getString("toolDescription");
 			int toolLoanPeriod = results.getInt("toolLoanPeriod");
@@ -129,8 +130,8 @@ public class LoanDAO {
 			int toolCategoryId = results.getInt("toolCategoryId");
 			String toolCategoryName = results.getString("toolCategoryName");
 			
-			Tool newTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName);
-			availableToolList.add(newTool);
+			foundTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName);
+			availableToolList.add(foundTool);
 		}		
 		return availableToolList;
 	}

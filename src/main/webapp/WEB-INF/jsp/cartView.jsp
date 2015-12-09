@@ -11,36 +11,25 @@
 
 <body>
     <jsp:include page="/WEB-INF/jsp/header.jsp">
-       <jsp:param name="pageTitle" value="Total Inventory Page" />
+       <jsp:param name="pageTitle" value="Checkout" />
     </jsp:include>
     
-    <h2>Inventory</h2>
+    <h2>Shopping Cart</h2>
     
-          <c:url value="/addToCart" var="addToCartURL">  
-     	  <c:param name="tool_id" value="${tool.tool_id}" />
-     	  </c:url>
-    <ul class="inventoryList">
-        
-        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus">  
-            <div>
-            	 ${tool}          	
-     				<a href ="${addToCartURL}">
-                		<img src="/webapp/img/shopping_cart.png">
-                 	</a>     								
-                   <hr>
-            </div>
-        </c:forEach>
-    </ul>
+    <table style="width:40%">
+        <th>Tool</th><th>Category</th><th>Return Date</th>
+	        <c:forEach var="item" items="${shoppingCart}" varStatus="loopStatus"> 
+		  
+		        <tr>
+		           <td><c:out value="${item.toolId}"/></td>
+		           <td><c:out value="${item.toolId}"/></td>
+		           <td><c:out value="${item.dateLoaned}"/></td>
+		           <td><a href="${addItemURL}"><c:out value="Remove From Cart"/> </a></td>
+	        	</tr>
+			</c:forEach>
+        </table>
     
-    <c:url value="/viewToolLoan" var="loanCheckout" />
-    
-  				<div>
-     				<a href ="${loanCheckout}">
-                		<img src="/webapp/img/shopping_cart.png">
-                 	</a>    
-                 </div>
-                 
-                 
+          
   			 
 </body>
 

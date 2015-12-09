@@ -6,33 +6,37 @@
 <meta charset="UTF-8">
 <c:url value="/css/site.css" var="cssURL" />
 <link rel="stylesheet" type="text/css" href="${cssURL}">
-<title>Available Inventory Page</title>
+<title>Available Inventory</title>
 </head>
 
 <body>
     <jsp:include page="/WEB-INF/jsp/header.jsp">
-       <jsp:param name="pageTitle" value="Total Inventory Page" />
+       <jsp:param name="pageTitle" value="Inventory List" />
     </jsp:include>
     
     <h2>Inventory</h2>
     
-      <ol>
+      
+	<table style="width:40%">
+        <th>Tool</th><th>Category</th><th>Id</th><th>Period</th>
+	        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus"> 
+		        <c:url value="/addToCart" var="addItemURL">
+		        	<c:param name="toolId" value="${tool.toolId}" />
+		        </c:url>
+		        <tr>
+		           <td><c:out value="${tool.toolName}"/></td>
+		           <td><c:out value="${tool.toolCategoryName}"/></td>
+		           <td><c:out value="${tool.toolId}"/></td>
+		           <td><c:out value="${tool.toolLoanPeriod}"/></td>
+		           <td><a href="${addItemURL}"><c:out value="Add to Cart"/> </a></td>
+	        	</tr>
+			</c:forEach>
+        </table>
         
-        <c:forEach var="tool" items="${toolList}"> 
-        <c:url value="/addToCart" var="addItemURL">
-                <c:param name="toolId" value="${tool.toolId}" />
-            </c:url>
-          
-            <li>
-                <a href="${addItemURL}"><c:out value="${tool.toolName}"/> 
-                						<c:out value="${tool.toolCategoryName}"/> 
-                						<c:out value="${tool.toolId}"/> 
-                						<c:out value="${tool.toolLoanPeriod}"/></a> 
-            </li>
-            
-        </c:forEach>
-        
-    </ol>
+        <a href="/tool-library-web/viewCart"><c:out value="Go To Shopping Cart"/>
+        </a>
+       
+    
     
          
     
