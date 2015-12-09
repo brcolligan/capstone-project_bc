@@ -17,8 +17,8 @@ public class Loan {
 	private Date endDate;
 	
 	
-	public Loan (int loanId, int inventory_id, String toolLoaned, Date dateOfLoan, Date expectedReturn, Date endDate, String firstName, String lastName, String phoneNumber, String driversLicense) {
-		this.loanId = loanId;
+	public Loan (int inventory_id, String toolLoaned, Date dateOfLoan, Date expectedReturn, Date endDate, String firstName, String lastName, String phoneNumber, String driversLicense) {
+
 		this.inventory_id = inventory_id;
 		this.toolLoaned = toolLoaned;
 		this.expectedReturn = expectedReturn;
