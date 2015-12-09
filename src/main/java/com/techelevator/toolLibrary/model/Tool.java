@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.toolLibrary.model;
 
 public class Tool {
 	
@@ -8,15 +8,17 @@ public class Tool {
 	private int toolId;
 	private int toolCategoryId;
 	private String toolCategoryName;
+	private int toolInventoryId;
 
 		
-	public Tool (String toolName, String toolDescription, int toolLoanPeriod, int toolId, int toolCategoryId, String toolCategoryName) {
+	public Tool (String toolName, String toolDescription, int toolLoanPeriod, int toolId, int toolCategoryId, String toolCategoryName, int toolInventoryId) {
 		this.toolName = toolName;
 		this.toolDescription = toolDescription;
 		this.toolLoanPeriod = toolLoanPeriod;
 		this.toolId = toolId;
 		this.toolCategoryId = toolCategoryId;
 		this.toolCategoryName = toolCategoryName;
+		this.setToolInventoryId(toolInventoryId);
 	}
 	public int getToolId() {
 		return toolId;
@@ -60,6 +62,12 @@ public class Tool {
 	
 	public void setToolCategoryName(String toolCategoryName) {
 		this.toolCategoryName = toolCategoryName;
+	}
+	public int getToolInventoryId() {
+		return toolInventoryId;
+	}
+	public void setToolInventoryId(int toolInventoryId) {
+		this.toolInventoryId = toolInventoryId;
 	}
 	
 	

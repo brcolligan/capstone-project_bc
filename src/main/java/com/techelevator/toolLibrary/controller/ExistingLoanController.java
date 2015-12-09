@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.techelevator.Loan;
+import com.techelevator.toolLibrary.model.Loan;
 import com.techelevator.toolLibrary.model.LoanDAO;
 
 @Controller
@@ -36,7 +36,7 @@ public class ExistingLoanController {
 		     Map<String, Object> model ) {
 		Loan loanById = loanDAO.getLoanById(loanId);
 		model.put("loanById", loanById);
-		return "removeFromLoan"; 
+		return "removeFromLoanPage"; 
 	}
 	
 	

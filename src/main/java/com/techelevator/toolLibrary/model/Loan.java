@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.toolLibrary.model;
 
 import java.util.Date;
 import java.util.Calendar;

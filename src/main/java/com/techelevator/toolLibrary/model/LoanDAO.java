@@ -2,8 +2,9 @@ package com.techelevator.toolLibrary.model;
 
 import javax.sql.DataSource;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -11,9 +12,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.techelevator.Loan;
-import com.techelevator.Tool;
 
 
 @Component
@@ -117,27 +115,44 @@ public class LoanDAO {
 	
 	
 	public List<Tool> getListOfAvailableTools(){
+		
+		Tool foundTool = null;
 		List<Tool> availableToolList = new ArrayList<>();
-			
-		Tool newTool = new Tool(null, null, 0, 0, 0, null);
-		
-		String selectSQL = "SELECT * FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id WHERE tool_available = 'T';";
-		
-		jdbcTemplate.update(selectSQL);
-		 
+		String selectSQL =  "SELECT tool.tool_id as toolId, tool.name as toolName, tool.tool_category_id as toolCategoryId, tool.description as toolDescription, tool.loan_period_in_days as toolLoanPeriod, tool_category.name as toolCategoryName, tool_inventory.tool_inventory_id as toolInventoryId FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id inner join tool_category on tool.tool_category_id = tool_category.tool_category_id WHERE tool_available = 'T' ORDER BY toolName";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
-		if(results.next()) {
-			newTool.setToolCategoryId(results.getInt("toolCategoryId"));
-			newTool.setToolCategoryName(results.getString("toolCategoryName"));
-			newTool.setToolDescription(results.getString("toolDescription"));
-			newTool.setToolId(results.getInt("toolId"));		
-			newTool.setToolLoanPeriod(results.getInt("toolLoanPeriod"));
-			newTool.setToolName(results.getString("toolName"));
-					
-			availableToolList.add(newTool);
+		while(results.next()) {
+			String toolName = results.getString("toolName");
+			String toolDescription = results.getString("toolDescription");
+			int toolLoanPeriod = results.getInt("toolLoanPeriod");
+			int toolId = results.getInt("toolId");		
+			int toolCategoryId = results.getInt("toolCategoryId");
+			String toolCategoryName = results.getString("toolCategoryName");
+			int toolInventoryId = results.getInt("toolInventoryId");
+			
+			foundTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName, toolInventoryId);
+			availableToolList.add(foundTool);
 		}		
 		return availableToolList;
 	}
 	
+	public Tool getToolByInventoryId(int toolInventoryId) {
+		
+		Tool foundTool = null;
+		String selectSQL = "SELECT tool.tool_id as toolId, tool.name as toolName, tool.tool_category_id as toolCategoryId, tool.description as toolDescription, tool.loan_period_in_days as toolLoanPeriod, tool_category.name as toolCategoryName, tool_inventory.tool_inventory_id as toolInventoryId FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id inner join tool_category on tool.tool_category_id = tool_category.tool_category_id WHERE tool_inventory_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL, toolInventoryId);
+		while(results.next()) {
+			String toolName = results.getString("toolName");
+			String toolDescription = results.getString("toolDescription");
+			int toolLoanPeriod = results.getInt("toolLoanPeriod");
+			int toolId = results.getInt("toolId");		
+			int toolCategoryId = results.getInt("toolCategoryId");
+			String toolCategoryName = results.getString("toolCategoryName");
+			toolInventoryId = results.getInt("toolInventoryId");
+			
+			foundTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName, toolInventoryId);
+			
+		}
+		return foundTool;
+	}
 
 }
