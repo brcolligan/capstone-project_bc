@@ -1,16 +1,60 @@
+/*.color-primary-0 { color: #6E685E }	Main Primary color 
+.color-primary-1 { color: #909090 }
+.color-primary-2 { color: #000000 }
+.color-primary-3 { color: #FFE1B5 }
+.color-primary-4 { color: #C8811A }
+
+.color-secondary-1-0 { color: #6E6B5E }	Main Secondary color (1) 
+.color-secondary-1-1 { color: #909090 }
+.color-secondary-1-2 { color: #000000 }
+.color-secondary-1-3 { color: #FFEEB5 }
+.color-secondary-1-4 { color: #C89F1A }
+
+.color-secondary-2-0 { color: #6E635E }	Main Secondary color (2) 
+.color-secondary-2-1 { color: #909090 }
+.color-secondary-2-2 { color: #000000 }
+.color-secondary-2-3 { color: #FFCDB5 }
+.color-secondary-2-4 { color: #C8531A } */
+
+
+
 body {
-    background-color : black;
+    background-color : #909090;
     color : white;
 }
 
 a {
-	color : yellow;
+	color : #000560;
 }
 
-#content a {
-    color : #7A2100;
+a:visited {
+	color : #6E6F70;
 }
 
+h2 {
+	background-color :#6e6f70;
+	color: black;
+}
+
+.table {
+	background-color : #FFF7ea;
+}
+
+.footer {
+	background-color : #C89f1a
+}
+
+.header {
+	background-color : #C89f1a
+}
+
+.form {
+	background-color : #FFF7ea;
+}
+
+
+
+/*
 #logo {
     width : 600px;
     height : 150px;
@@ -88,3 +132,4 @@ input {
 	margin-bottom : 1em;
 	padding : 0 1em 0 1em;
 }
+*/
