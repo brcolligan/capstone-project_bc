@@ -16,19 +16,12 @@ public class Loan {
 	private Date expectedReturn;
 	private Date endDate;
 	
-	
-	public Loan (int inventory_id, String toolLoaned, Date dateOfLoan, Date expectedReturn, Date endDate, String firstName, String lastName, String phoneNumber, String driversLicense) {
 
-		this.inventory_id = inventory_id;
-		this.toolLoaned = toolLoaned;
-		this.expectedReturn = expectedReturn;
-		this.dateOfLoan = dateOfLoan;
-		this.endDate = endDate;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.driversLicense = driversLicense;
-	}
 	
+	public Loan() {
+
+	}
+
 	public int getLoanId() {
 		return loanId;
 	}
