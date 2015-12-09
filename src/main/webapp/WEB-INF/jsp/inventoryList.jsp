@@ -36,7 +36,13 @@
         <a href="/tool-library-web/viewCart"><c:out value="Go To Shopping Cart"/>
         </a>
        
-    
+    <c:url value="/viewCart" var="cartViewURL" />
+
+	<div>
+		<form action=${cartViewURL} method="get">
+			<button type="button">Review Cart Contents</button>
+		</form>
+	</div>
     
          
     

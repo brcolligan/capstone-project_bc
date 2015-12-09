@@ -1,5 +1,4 @@
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,22 +12,40 @@
 
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp">
-	   <jsp:param name="pageTitle" value="Tool Library" />
+		<jsp:param name="pageTitle" value="Tool Library" />
 	</jsp:include>
 
 
-<div>
-<a href="<c:url value="/addTools"/>">new loan</a>
-</div>
-<div>
-<form action="/existingLoan" method="get">
-<button type="button">Existing Loan</button>
+	<c:url value="/addTools" var="addTools">
+	</c:url>
+	<c:url value="/existingLoans" var="existingLoans">
+	</c:url>
+
+	<div>
+		<a href="${addTools}">NEW LOANS</a>
+	</div>
+	<br>
+	<br>
+	<div>
+		<a href="${existingLoans}">EXISTING LOANS</a>
+	</div>
+
+	<!-- <div>
+<form action=${addTools} method="get">
+<button type="button">NEW LOANS</button>
 </form>
 </div>
 
+<div>
+<form action=${existingLoans} method="get">
+<button type="button">EXISTING LOANS</button>
+</form>
+</div> -->
 
-	
-	
+
+
+
+
 </body>
 
 </html>
