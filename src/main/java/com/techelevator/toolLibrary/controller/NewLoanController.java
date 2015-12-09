@@ -20,7 +20,8 @@ import com.techelevator.toolLibrary.model.LoanDAO;
 public class NewLoanController {
 	
 	private LoanDAO loanDAO;
-	public List<ShoppingCartItem> shoppingCart = new ArrayList <>();
+	
+	
 	
 	@Autowired
 	public NewLoanController(LoanDAO loanDAO) {
@@ -36,12 +37,15 @@ public class NewLoanController {
 		}
 			
 		@RequestMapping( path={"/addToCart"} )
-		public String addToCart(@RequestParam("toolId") int toolId, Map<String, Object> model) {
-			Date dateLoaned = null;
-			ShoppingCartItem newShoppingCartItem = new ShoppingCartItem(toolId,dateLoaned);
-			shoppingCart.add(newShoppingCartItem);
+		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, Map<String, Object> model) {
+			
+			List<Tool> shoppingCart = new ArrayList <>();
+			
+			Tool addTool = loanDAO.getToolByInventoryId(toolInventoryId);
+			model.put("addTool", addTool);
+			shoppingCart.add(addTool);
 			model.put("shoppingCart", shoppingCart);
-			return "redirect:inventoryList";  
+			return "redirect:/addTools";  
 		}
 		
 		@RequestMapping( path={"/viewCart"} )

@@ -17,17 +17,19 @@
     <h2>Inventory</h2>
     
       
-	<table style="width:40%">
-        <th>Tool</th><th>Category</th><th>Id</th><th>Period</th>
+	<table style="width:50%">
+        <th>Tool</th><th>Category</th><th>Id</th><th>Period</th><th>Inventory Id</th>
 	        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus"> 
 		        <c:url value="/addToCart" var="addItemURL">
-		        	<c:param name="toolId" value="${tool.toolId}" />
+		        	<c:param name="toolInventoryId" value="${tool.toolInventoryId}" />
+		        	
 		        </c:url>
 		        <tr>
 		           <td><c:out value="${tool.toolName}"/></td>
 		           <td><c:out value="${tool.toolCategoryName}"/></td>
 		           <td><c:out value="${tool.toolId}"/></td>
 		           <td><c:out value="${tool.toolLoanPeriod}"/></td>
+		           <td><c:out value="${tool.toolInventoryId}"/></td>
 		           <td><a href="${addItemURL}"><c:out value="Add to Cart"/> </a></td>
 	        	</tr>
 			</c:forEach>
