@@ -34,9 +34,18 @@ public class LoanDAO {
 		Double maintenanceFee = 0d;
 		Double cleaningFee = 0d;
 		
-		String insertSQL = "INSERT INTO loan(loan_id, inventory_id, tool_loaned, loan_start_date, loan_due_date, loan_end_date, first_name, last_name, phone_number, license_num, late_fee, maintenance_fee, cleaning_fee VALUES (nextval('seq_loan_id'), ?, ?, ?, ?, ?, ?, ?;";
+		String nextIdSQL = "SELECT nextval('seq_loan_id')";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(nextIdSQL);
+		results.next();
+		int id = results.getInt(1);
+		
+		newLoan.setLoanId(id);
+		
+		
+		String insertSQL = "INSERT INTO loan(inventory_id, tool_name, loan_start_date, loan_due_date, loan_end_date, user_first_name, user_last_name, user_phone_num, user_license_num) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
-		jdbcTemplate.update(insertSQL, 	newLoan.getLoanId(),
+		jdbcTemplate.update(insertSQL, 	
+										//newLoan.getLoanId(),
 										newLoan.getInventoryId(),
 										newLoan.getToolLoaned(),
 										newLoan.getDateOfLoan(),
@@ -45,27 +54,26 @@ public class LoanDAO {
 										newLoan.getFirstName(),
 										newLoan.getLastName(),
 										newLoan.getPhoneNumber(),
-										newLoan.getDriversLicense(),
-										lateFee,
-										maintenanceFee,
-										cleaningFee);
+										newLoan.getDriversLicense()
+										//lateFee,
+										//maintenanceFee,
+										//cleaningFee
+										);
 		
-		String updateSQL = "UPDATE tool_inventory SET tool_available = 'f' WHERE inventory_id = ?;";
+	//	String updateSQL = "UPDATE tool_inventory SET tool_available = 'f' WHERE inventory_id = ?";
 		
-		jdbcTemplate.update(updateSQL, newLoan.getInventoryId());
+	//	jdbcTemplate.update(updateSQL, newLoan.getInventoryId());
 	}
 	
 	
 	
 	 public Loan getLoanById(int loanId) {
 		Loan existingLoan = null;
-		String selectSQL = "SELECT * FROM loan WHERE loan_id = ?;";
-		
-		jdbcTemplate.update(selectSQL, loanId);
+		String selectSQL = "SELECT * FROM loan WHERE loan_id = ?";
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL, loanId);
-		if(results.next()) {
-			existingLoan.setLoanId(results.getInt("loan_id"));
+		while(results.next()) {
+			//existingLoan.setLoanId(results.getInt("loan_id"));
 			existingLoan.setInventoryId(results.getInt("inventory_id"));
 			existingLoan.setFirstName(results.getString("firstName"));
 			existingLoan.setLastName(results.getString("lastName"));
@@ -82,14 +90,14 @@ public class LoanDAO {
 	
 	public List<Loan> getListOfLoans(){ //exclude loans that are complete
 		List<Loan> loanList = new ArrayList<>();
-		Loan existingLoan = new Loan(0, 0, null, null, null, null, null, null, null, null);
+		Loan existingLoan = new Loan(0, null, null, null, null, null, null, null, null);
 		
-		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL;";
+		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL";
 		
 		jdbcTemplate.update(selectSQL);
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
-		if(results.next()) {
+		while(results.next()) {
 				existingLoan.setLoanId(results.getInt("loan_id"));
 				existingLoan.setInventoryId(results.getInt("inventory_id"));
 				existingLoan.setFirstName(results.getString("firstName"));
@@ -121,23 +129,22 @@ public class LoanDAO {
 			
 		Tool newTool = new Tool(null, null, 0, 0, 0, null);
 		
-		String selectSQL = "SELECT * FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id WHERE tool_available = 'T';";
+		String selectSQL = "SELECT tool.tool_id, tool.name, tool.tool_category_id, tool.description, tool.loan_period_in_days, tool_category.name as tool_category_name FROM tool INNER JOIN tool_inventory ON tool.tool_id = tool_inventory.tool_id inner join tool_category on tool.tool_category_id = tool_category.tool_category_id WHERE tool_available = 'T'";
 		
-		jdbcTemplate.update(selectSQL);
+	//	jdbcTemplate.update(selectSQL);
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
-		if(results.next()) {
-			newTool.setToolCategoryId(results.getInt("toolCategoryId"));
-			newTool.setToolCategoryName(results.getString("toolCategoryName"));
-			newTool.setToolDescription(results.getString("toolDescription"));
-			newTool.setToolId(results.getInt("toolId"));		
-			newTool.setToolLoanPeriod(results.getInt("toolLoanPeriod"));
-			newTool.setToolName(results.getString("toolName"));
+		while(results.next()) {
+			newTool.setToolCategoryId(results.getInt("tool_category_id"));
+			newTool.setToolCategoryName(results.getString("tool_category_name"));
+			newTool.setToolDescription(results.getString("description"));
+			newTool.setToolId(results.getInt("tool_id"));		
+			newTool.setToolLoanPeriod(results.getInt("loan_period_in_days"));
+			newTool.setToolName(results.getString("name"));
 					
 			availableToolList.add(newTool);
 		}		
 		return availableToolList;
 	}
 	
-
 }

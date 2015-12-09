@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.Tool;
-import com.techelevator.ssgeek.forum.model.Topic;
 import com.techelevator.toolLibrary.model.LoanDAO;
 
 @Controller
