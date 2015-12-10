@@ -19,9 +19,11 @@
  
     <h2>Tools in your Cart</h2>
     
-    <table style="width:40%">
+    <table style="width:40%" class="table">
         <th>Tool</th><th>Category</th>
 	       
+    <table style="width:40%" class="table">
+        <th>Tool</th><th>Category</th><th>Inventory Id</th>
 	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus">
 		        <tr>
 		           <td><c:out value="${addedTool.toolName}"/></td>
@@ -37,7 +39,7 @@
     
     <div class="fieldGroup">
     	<c:url value="/homePage" var="formActionURL" /> <!-- c:url value was /checkoutTools -->
-    	<form action="${formActionURL}" method="POST">
+    	<form class="form" action="${formActionURL}" method="POST">
         <c:url value="/homePage" var="homePageURL" />
     
     <div class="fieldGroup">
