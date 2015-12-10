@@ -57,10 +57,9 @@ public class LoanDAO {
 		// cleaningFee
 		);
 		
-		// String updateSQL = "UPDATE tool_inventory SET tool_available = 'f'
-		// WHERE inventory_id = ?";
+		 String updateSQL = "UPDATE tool_inventory SET tool_available = 'f' WHERE inventory_id = ?";
 		
-		// jdbcTemplate.update(updateSQL, newLoan.getInventoryId());
+		 jdbcTemplate.update(updateSQL, newLoan.getInventoryId());
 	}
 	
 	
@@ -93,20 +92,20 @@ public class LoanDAO {
 		
 		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL";
 
-		jdbcTemplate.update(selectSQL);
+		//jdbcTemplate.update(selectSQL);
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
 			Loan existingLoan = new Loan();
 				existingLoan.setLoanId(results.getInt("loan_id"));
 				existingLoan.setInventoryId(results.getInt("inventory_id"));
-				existingLoan.setFirstName(results.getString("firstName"));
-				existingLoan.setLastName(results.getString("lastName"));
+				existingLoan.setFirstName(results.getString("user_first_name"));
+				existingLoan.setLastName(results.getString("user_last_name"));
 				existingLoan.setDateOfLoan(results.getDate("loan_start_date"));
 				existingLoan.setExpectedReturn(results.getDate("loan_due_date"));
-				existingLoan.setDriversLicense(results.getString("driversLicense"));
-				existingLoan.setPhoneNumber(results.getString("phoneNumber"));
-				existingLoan.setToolLoaned(results.getString("toolLoaned"));				
+				existingLoan.setDriversLicense(results.getString("user_license_num"));
+				existingLoan.setPhoneNumber(results.getString("user_phone_num"));
+				existingLoan.setToolLoaned(results.getString("tool_name"));				
 		
 				loanList.add(existingLoan);
 		}

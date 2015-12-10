@@ -20,13 +20,13 @@
     <h2>Tools in your Cart</h2>
     
     <table style="width:40%">
-        <th>Tool</th><th>Category</th><th>Inventory Id</th>
-	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus"> 
-		  
+        <th>Tool</th><th>Category</th>
+	       
+	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus">
 		        <tr>
 		           <td><c:out value="${addedTool.toolName}"/></td>
-		           <td><c:out value="${addedTool.toolId}"/></td>
-		           <td><c:out value="${addedTool.toolInventoryId}"/></td>
+		           <td><c:out value="${addedTool.toolCategoryName}"/></td>
+		          <!--  <td><c:out value="${addedTool.toolInventoryId}"/></td> -->
 		           <td><a href="${addItemURL}"><c:out value="Remove From Cart"/> </a></td>
 	        	</tr>
 			</c:forEach>
@@ -36,9 +36,9 @@
     <h2>Renter's Information</h2>
     
     <div class="fieldGroup">
-    	<c:url value="/checkoutTools" var="formActionURL" />
+    	<c:url value="/homePage" var="formActionURL" /> <!-- c:url value was /checkoutTools -->
     	<form action="${formActionURL}" method="POST">
-    
+        <c:url value="/homePage" var="homePageURL" />
     
     <div class="fieldGroup">
         <input type="text" name="date" id="date" placeholder="Today's Date" />
@@ -59,6 +59,7 @@
     
     <div class="fieldGroup">
             <input type="submit" value="Submit Loan Request" />
+
     </div>
    </form>	
     </div>
