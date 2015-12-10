@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<c:url value="placeholder.css" var="cssURL" />
+<c:url value="/css/site.css" var="cssURL" />
 <link rel="stylesheet" type="text/css" href="${cssURL}">
 <title>Tool Library</title>
 </head>

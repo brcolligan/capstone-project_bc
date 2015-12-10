@@ -19,7 +19,7 @@
  
     <h2>Tools in your Cart</h2>
     
-    <table style="width:40%">
+    <table style="width:40%" class="table">
         <th>Tool</th><th>Category</th><th>Inventory Id</th>
 	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus"> 
 		  
@@ -32,12 +32,11 @@
 			</c:forEach>
         </table>
         
-        
     <h2>Renter's Information</h2>
     
     <div class="fieldGroup">
     	<c:url value="/checkoutTools" var="formActionURL" />
-    	<form action="${formActionURL}" method="POST">
+    	<form class="form" action="${formActionURL}" method="POST">
     
     
     <div class="fieldGroup">
