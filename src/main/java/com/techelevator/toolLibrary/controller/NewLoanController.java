@@ -5,20 +5,27 @@ import java.util.List;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.toolLibrary.model.LoanDAO;
 import com.techelevator.toolLibrary.model.Tool;
 
 @Controller
+@SessionAttributes
+
 public class NewLoanController {
 	
 	private LoanDAO loanDAO;
-	public List<Tool> shoppingCart = new ArrayList <>();
 	
+	List<Tool> shoppingCart = new ArrayList <>();
 	
 	
 	@Autowired
@@ -28,19 +35,21 @@ public class NewLoanController {
 
 		@RequestMapping( path="/addTools")
 		public String showInventoryList(Map <String, Object> model) {
-			
 			List <Tool> toolList = loanDAO.getListOfAvailableTools();
 			model.put("toolList", toolList);
 			return "inventoryList";  
 		}
 			
 		
-		@RequestMapping( path={"/addToCart"} )
-		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, Map<String, Object> model) {
-		
+		@RequestMapping( path={"/addToCart"})
+		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
+			
+			session.setAttribute("shoppingCart", shoppingCart);
 			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
 			shoppingCart.add(addedTool);
-			model.put("shoppingCart", shoppingCart);
+			
+			
+			
 			
 			return "cartView";  
 		}
@@ -49,6 +58,7 @@ public class NewLoanController {
 		@RequestMapping( path={"/viewCart"} )
 		public String viewLoan() {
 			return "cartView";  
+			
 		}
 		@RequestMapping( path={"/removeFromCart"} )
 		public String removeFromCart(@RequestParam("toolId") int toolId, Map<String, Object> model) {
