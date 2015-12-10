@@ -14,10 +14,10 @@
        <jsp:param name="pageTitle" value="Inventory List" />
     </jsp:include>
     
-    <h2>Inventory</h2>
+    <h2>Available Inventory</h2>
     
       
-	<table style="width:50%">
+	<table style="width:50%" class="table">
         <th>Tool</th><th>Category</th><th>Id</th><th>Period</th><th>Inventory Id</th>
 	       
 	        <c:forEach var="tool" items="${toolList}" varStatus="loopStatus"> 

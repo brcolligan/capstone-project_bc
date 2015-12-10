@@ -17,7 +17,7 @@
 	</jsp:include>
 
 
- <ol class="loanList">
+ <ol class="table">
         <c:forEach var="loan" items="${loanList}" varStatus="loopStatus">           
             <c:url value="/loanReturnPage" var="existingLoanList">
                 <c:param name="existingLoanList" value="${loan.id}" /> 
