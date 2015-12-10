@@ -70,7 +70,7 @@ public class LoanDAO {
 		String selectSQL = "SELECT * FROM loan WHERE loan_id = ?";
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL, loanId);
-		while (results.next()) {
+		if (results.next()) {
 			existingLoan.setLoanId(results.getInt("loan_id"));
 			existingLoan.setInventoryId(results.getInt("inventory_id"));
 			existingLoan.setFirstName(results.getString("user_first_name"));
