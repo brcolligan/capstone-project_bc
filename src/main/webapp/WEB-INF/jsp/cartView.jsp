@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <c:url value="/css/site.css" var="cssURL" />
 <link rel="stylesheet" type="text/css" href="${cssURL}">
+
 <title>Total Inventory Page</title>
 </head>
 
@@ -18,16 +19,16 @@
     
  
     <h2>Tools in your Cart</h2>
-    
-    <table style="width:40%">
-        <th>Tool</th><th>Category</th><th>Inventory Id</th>
-	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus"> 
-		  
+	       
+    <table style="width:40%" class="table">
+        <th>Tool</th><th>Category</th><th>Due Date</th>
+	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus">
 		        <tr>
 		           <td><c:out value="${addedTool.toolName}"/></td>
-		           <td><c:out value="${addedTool.toolId}"/></td>
-		           <td><c:out value="${addedTool.toolInventoryId}"/></td>
+		           <td><c:out value="${addedTool.toolCategoryName}"/></td>
+		           <td><c:out value="${addedTool.toolDueDate}"/></td>
 		           <td><a href="${addItemURL}"><c:out value="Remove From Cart"/> </a></td>
+		           	<!-- remove item from cart, do a redirect to this page & it will refresh without that item -->
 	        	</tr>
 			</c:forEach>
         </table>
@@ -37,12 +38,11 @@
     
     <div class="fieldGroup">
     	<c:url value="/checkoutTools" var="formActionURL" />
-    	<form action="${formActionURL}" method="POST">
-    
+    	<form class="form" action="${formActionURL}" method="POST">
     
     <div class="fieldGroup">
         <input type="text" name="date" id="date" placeholder="Today's Date" />
-    </div>
+    	</div>
     
     <div class="fieldGroup">
          <input type="text" name="firstName" id="firstName" placeholder="First Name" />
@@ -59,6 +59,7 @@
     
     <div class="fieldGroup">
             <input type="submit" value="Submit Loan Request" />
+
     </div>
    </form>	
     </div>

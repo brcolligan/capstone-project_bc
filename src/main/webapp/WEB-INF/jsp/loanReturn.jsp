@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<c:url value="placeholder.css" var="cssURL" />
+<c:url value="/css/site.css" var="cssURL" />
 <link rel="stylesheet" type="text/css" href="${cssURL}">
 <title>Loan Return Page</title>
 </head>
@@ -17,7 +17,7 @@
 	</jsp:include>
 
 
- <ol class="loanList">
+ <ol class="table">
         <c:forEach var="loan" items="${loanById}" varStatus="loopStatus">           
             <c:url value="/processedReturn" var="loanReturn">
                 <c:param name="loanReturnPage" value="${loan.id}" /> 

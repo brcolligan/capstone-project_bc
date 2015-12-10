@@ -16,7 +16,24 @@
 .color-secondary-2-3 { color: #FFCDB5 }
 .color-secondary-2-4 { color: #C8531A } */
 
+.header-banner {
+	background-color: #C8811A;
+}
 
+.footer-banner {
+	background-color: #C8811A;
+}
+
+.table {
+	background-color : #FFF7ea;
+	width:1000px;
+}
+
+.form {
+	background-color : #FFF7ea;
+	width: 800px
+}
+;
 
 body {
     background-color : #909090;
@@ -34,24 +51,8 @@ a:visited {
 h2 {
 	background-color :#6e6f70;
 	color: black;
+	  text-shadow: 1px 4px 2px #333;
 }
-
-.table {
-	background-color : #FFF7ea;
-}
-
-.footer {
-	background-color : #C89f1a
-}
-
-.header {
-	background-color : #C89f1a
-}
-
-.form {
-	background-color : #FFF7ea;
-}
-
 
 
 /*

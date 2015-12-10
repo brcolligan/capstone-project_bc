@@ -43,14 +43,14 @@ public class LoanDAO {
 	
 		jdbcTemplate.update(insertSQL,
 			    newLoan.getLoanId(),
-										newLoan.getInventoryId(),
-										newLoan.getToolLoaned(),
-										newLoan.getDateOfLoan(),
-										newLoan.getExpectedReturn(),
-										loanEndDate,
-										newLoan.getFirstName(),
-										newLoan.getLastName(),
-										newLoan.getPhoneNumber(),
+				newLoan.getInventoryId(),
+				newLoan.getToolLoaned(),
+				newLoan.getDateOfLoan(),
+				newLoan.getExpectedReturn(),
+				loanEndDate,
+				newLoan.getFirstName(),
+				newLoan.getLastName(),
+				newLoan.getPhoneNumber(),
 				newLoan.getDriversLicense()
 		// lateFee,
 		// maintenanceFee,
@@ -70,19 +70,10 @@ public class LoanDAO {
 		String selectSQL = "SELECT * FROM loan WHERE loan_id = ?";
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL, loanId);
-		if (results.next()) {
-			existingLoan.setLoanId(results.getInt("loan_id"));
-			existingLoan.setInventoryId(results.getInt("inventory_id"));
-			existingLoan.setFirstName(results.getString("user_first_name"));
-			existingLoan.setLastName(results.getString("user_last_name"));
-			existingLoan.setDateOfLoan(results.getDate("loan_start_date"));
-			existingLoan.setExpectedReturn(results.getDate("loan_due_date"));
-			existingLoan.setDriversLicense(results.getString("user_license_num"));
-			existingLoan.setPhoneNumber(results.getString("user_phone_num"));
-			existingLoan.setToolLoaned(results.getString("tool_name"));
-			existingLoan.setEndDate(results.getDate("loan_end_date"));
-		}
 		
+		if (results.next()) {
+			populateLoanAttributes(existingLoan, results);
+		}
 		 return existingLoan; 
 	 }
 	
@@ -90,30 +81,18 @@ public class LoanDAO {
 	public List<Loan> getListOfLoans(){ //exclude loans that are complete
 		List<Loan> loanList = new ArrayList<>();
 		
-		
 		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL";
-
 		jdbcTemplate.update(selectSQL);
-		 
+		Loan existingLoan = new Loan();
+		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
-			Loan existingLoan = new Loan();
-				existingLoan.setLoanId(results.getInt("loan_id"));
-				existingLoan.setInventoryId(results.getInt("inventory_id"));
-				existingLoan.setFirstName(results.getString("firstName"));
-				existingLoan.setLastName(results.getString("lastName"));
-				existingLoan.setDateOfLoan(results.getDate("loan_start_date"));
-				existingLoan.setExpectedReturn(results.getDate("loan_due_date"));
-				existingLoan.setDriversLicense(results.getString("driversLicense"));
-				existingLoan.setPhoneNumber(results.getString("phoneNumber"));
-				existingLoan.setToolLoaned(results.getString("toolLoaned"));				
-		
+			
+			populateLoanAttributes(existingLoan, results);			
 				loanList.add(existingLoan);
 		}
 		return loanList;
 	}
-	
-	
 	
 	public void updateReturnedItem(){
 	
@@ -145,7 +124,6 @@ public class LoanDAO {
 		}		
 		return availableToolList;
 	}
-
 	
 	
 	public Tool getToolByInventoryId(int toolInventoryId) {
@@ -162,11 +140,24 @@ public class LoanDAO {
 			String toolCategoryName = results.getString("toolCategoryName");
 			toolInventoryId = results.getInt("toolInventoryId");
 			
-			foundTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName, toolInventoryId);
-			
+			foundTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName, toolInventoryId);			
 		}
 		return foundTool;
 	}
 
+	private void populateLoanAttributes(Loan existingLoan, SqlRowSet results) {
+		existingLoan.setLoanId(results.getInt("loan_id"));
+		existingLoan.setInventoryId(results.getInt("inventory_id"));
+		existingLoan.setFirstName(results.getString("user_first_name"));
+		existingLoan.setLastName(results.getString("user_last_name"));
+		existingLoan.setDateOfLoan(results.getDate("loan_start_date"));
+		existingLoan.setExpectedReturn(results.getDate("loan_due_date"));
+		existingLoan.setDriversLicense(results.getString("user_license_num"));
+		existingLoan.setPhoneNumber(results.getString("user_phone_num"));
+		existingLoan.setToolLoaned(results.getString("tool_name"));
+		existingLoan.setEndDate(results.getDate("loan_end_date"));
+	}
+	
+	
 }
 

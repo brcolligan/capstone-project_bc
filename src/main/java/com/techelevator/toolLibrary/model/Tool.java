@@ -1,5 +1,11 @@
 package com.techelevator.toolLibrary.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 public class Tool {
 	
 	private String toolName;
@@ -18,25 +24,40 @@ public class Tool {
 		this.toolId = toolId;
 		this.toolCategoryId = toolCategoryId;
 		this.toolCategoryName = toolCategoryName;
-		this.setToolInventoryId(toolInventoryId);
+		this.setToolInventoryId(toolInventoryId);	
 	}
+	
 	public int getToolId() {
 		return toolId;
 	}
+	
 	public String getToolName() {
 		return toolName;
 	}
+	
 	public String getToolDescription() {
 		return toolDescription;
 	}
+	
 	public int getToolLoanPeriod() {
 		return toolLoanPeriod;
 	}
+	
 	public int getToolCategoryId() {
 		return toolCategoryId;
 	}
+	
 	public String getToolCategoryName() {
 		return toolCategoryName;
+	}
+	
+	public LocalDate getToolDueDate() throws ParseException {
+		LocalDate today = LocalDate.now();
+		LocalDate toolDueDate = today.plusDays(toolLoanPeriod);
+		
+		
+		return toolDueDate;
+		//return toolDueDate;
 	}
 	
 	
@@ -44,6 +65,7 @@ public class Tool {
 	public void setToolId(int toolId) {
 		this.toolId = toolId;
 	}
+	
 	public void setToolName(String toolName) {
 		this.toolName = toolName;
 	}
@@ -63,9 +85,11 @@ public class Tool {
 	public void setToolCategoryName(String toolCategoryName) {
 		this.toolCategoryName = toolCategoryName;
 	}
+	
 	public int getToolInventoryId() {
 		return toolInventoryId;
 	}
+	
 	public void setToolInventoryId(int toolInventoryId) {
 		this.toolInventoryId = toolInventoryId;
 	}
