@@ -73,7 +73,7 @@ public class NewLoanController {
 			//accept form submission
 			//change value of tool_inventory.inventory_availability
 			//insert new loan row in DB
-			//
+			//clear shoppingCart
 			
 			return "loanProcess";  
 		}
@@ -81,13 +81,9 @@ public class NewLoanController {
 		
 		@RequestMapping( path={"/reviewLoan"} )
 		public String reviewLoan() {
-			return "processedLoanReview";  
+			return "redirect: homePage";  
 		}
 
 
-		@RequestMapping( path={"/homePage"} )
-		public String homePage() {
-			return "redirect:homePage"; 
-		}
 
 	}
