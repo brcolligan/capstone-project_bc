@@ -21,15 +21,15 @@
         <th>Last Name</th><th>First Name</th><th>Tool Name</th><th>Rental Date</th><th>Due Date</th>
 	       
         <c:forEach var="loan" items="${loanList}" varStatus="loopStatus">           
-            <c:url value="/loanReturnPage" var="existingLoanList">
-                <c:param name="existingLoanList" value="${loan.id}" /> 
+            <c:url value="/loanReturn" var="addLoanURL">
+                <c:param name="loanId" value="${loan.loanId}" /> 
             </c:url>
            <tr>
-		           <td><c:out value="${loan.firstName}"/></td>
 		           <td><c:out value="${loan.lastName}"/></td>
-		           <td><c:out value="${loan.toolName}"/></td>
-		           <td><c:out value="${loan.loanStartDate}"/></td>
-		           <td><c:out value="${loan.loanDueDate}"/></td>
+		           <td><c:out value="${loan.firstName}"/></td>
+		           <td><c:out value="${loan.toolLoaned}"/></td>
+		           <td><c:out value="${loan.dateOfLoan}"/></td>
+		           <td><c:out value="${loan.expectedReturn}"/></td>
 		           <td><a href="${addLoanURL}"><c:out value="Return Loan"/> </a></td>
 	        	</tr>
 			</c:forEach>

@@ -81,10 +81,8 @@ public class LoanDAO {
 	public List<Loan> getListOfLoans(){ //exclude loans that are complete
 		List<Loan> loanList = new ArrayList<>();
 		
-		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL";
-		jdbcTemplate.update(selectSQL);
+		String selectSQL = "SELECT * FROM loan"; //WHERE loan_end_date IS NULL";
 		Loan existingLoan = new Loan();
-		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
 			
