@@ -437,8 +437,8 @@ SELECT setval('seq_tool_inventory_id', 318);
 INSERT INTO loan (loan_id, inventory_id, tool_name, loan_start_date, loan_due_date, loan_end_date, user_first_name, user_last_name, user_license_num, user_phone_num, late_fee, maintenance_fee, cleaning_fee)
 VALUES (nextval('seq_loan_id'), 188, 'Air Pump', '2015-12-08', '2015-12-15', '2015-12-13', 'John', 'Doe', 'RT12345', '4401234567', 3, 5, 4),
 (nextval('seq_loan_id'), 13, 'House Broom', '2015-12-08', '2015-12-15', '2015-12-13', 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 92, 'Ladder, Stabilizer', '2015-12-08', '2015-12-15', '2015-12-13', 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 96, 'Miter Box', '2015-12-08', '2015-12-15', '2015-12-13', 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 92, 'Ladder, Stabilizer', '2015-12-08', '2015-12-15',, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 96, 'Miter Box', '2015-12-08', '2015-12-15',, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
 (nextval('seq_loan_id'), 125, 'Air Pump', '2015-12-08', '2015-12-15', '2015-12-13', 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4);
 
 

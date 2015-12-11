@@ -36,24 +36,19 @@ public class ExistingLoanController {
 
 	
 	@RequestMapping( path={"/loanReturn"} )
-	public String loanReturn( @RequestParam("loanId") int loanId, HttpSession session ) {
+	public String loanReturn( @RequestParam("loanId") int loanId, Map<String, Object> model) {
 		Loan loanById = loanDAO.getLoanById(loanId);
-		if (session.getAttribute("loanList") == null)  {
-			session.setAttribute("loanList", new ArrayList <>());
-		}
-			((List<Loan>) session.getAttribute("loanList")).add(loanById);
+
+		model.put("loan", loanById);
 
 		return "loanReturn"; 
 	}
 	
-	
 	@RequestMapping( path= {"/processedReturn"} )
 	public String processedReturn(HttpSession session) {
-		
 		
 		session.invalidate();
 		return "redirect:homePage"; 
 	}
-
 	
 }

@@ -17,15 +17,15 @@
 	</jsp:include>
 
 
- <ol class="table">
-        <c:forEach var="loan" items="${loanById}" varStatus="loopStatus">           
-            <c:url value="/processedReturn" var="loanReturn">
-                <c:param name="loanReturnPage" value="${loan.id}" /> 
-            </c:url>
-        
+ <table style="width:50%" class="table">
+        <c:forEach var="loan" items="${loanList}" varStatus="loopStatus">           
+		    <tr>
+		    	<td><c:out value="${loan.toolLoaned}" /></td>  
+			</tr>
         </c:forEach>
         
-    </ol>
+ </table>
+ 
 
 	
 	
