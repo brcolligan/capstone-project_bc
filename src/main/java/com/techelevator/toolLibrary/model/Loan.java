@@ -15,6 +15,9 @@ public class Loan {
 	private Date dateOfLoan;
 	private Date expectedReturn;
 	private Date endDate;
+	private double lateFee;
+	private double maintenanceFee;
+	private double cleaningFee;
 	
 
 	
@@ -102,6 +105,30 @@ public class Loan {
 	
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public double getLateFee() {
+		return lateFee;
+	}
+
+	public void setLateFee(double lateFee) {
+		this.lateFee = lateFee;
+	}
+
+	public double getMaintenanceFee() {
+		return maintenanceFee;
+	}
+
+	public void setMaintenanceFee(double maintenanceFee) {
+		this.maintenanceFee = maintenanceFee;
+	}
+
+	public double getCleaningFee() {
+		return cleaningFee;
+	}
+
+	public void setCleaningFee(double cleaningFee) {
+		this.cleaningFee = cleaningFee;
 	}
 	
 }

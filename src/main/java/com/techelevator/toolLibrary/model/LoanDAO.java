@@ -92,14 +92,38 @@ public class LoanDAO {
 		return loanList;
 	}
 	
-	public void updateReturnedItem(){
+	public void updateReturnedItem(Loan existingLoan){
 	
 		// update tool_inventory.tool_available to 't'
 		// update loan.loan_end_date to current_date
 		// update loan.late_fee, loan.maintenance_fee, loan.cleaning_fee as
 		// needed
 	
-	}
+\	
+			Date loanEndDate=new Date();
+			Double lateFee = 0d;
+			Double maintenanceFee = 0d;
+			Double cleaningFee = 0d;
+
+			String insertSQL = "UPDATE loan SET loan_end_date = ?, late_fee = ?, maintenance_fee = ?, cleaning_fee = ? WHERE loan_id = ?)";
+		
+			jdbcTemplate.update(insertSQL,
+					loanEndDate,
+					lateFee,
+					maintenanceFee,
+					cleaningFee,
+					existingLoan.getLoanId()
+			);
+			
+			 String updateSQL = "UPDATE tool_inventory SET tool_available = 'f' WHERE tool_inventory_id = ?)";
+			
+			 jdbcTemplate.update(updateSQL, existingLoan.getInventoryId());
+		}
+		
+		
+		
+		
+
 	
 	public List<Tool> getListOfAvailableTools() {
 	

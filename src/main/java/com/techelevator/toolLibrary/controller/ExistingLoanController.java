@@ -40,15 +40,16 @@ public class ExistingLoanController {
 		Loan loanById = loanDAO.getLoanById(loanId);
 
 		model.put("loan", loanById);
-
+		
 		return "loanReturn"; 
 	}
 	
 	@RequestMapping( path= {"/processedReturn"} )
-	public String processedReturn(HttpSession session) {
+	public String processedReturn() {
 		
-		session.invalidate();
-		return "redirect:homePage"; 
+		
+		
+		return "existingLoans"; 
 	}
 	
 }
