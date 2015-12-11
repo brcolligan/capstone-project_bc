@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.techelevator.toolLibrary.model.Loan;
 import com.techelevator.toolLibrary.model.LoanDAO;
 import com.techelevator.toolLibrary.model.Tool;
 
@@ -40,11 +41,12 @@ public class NewLoanController {
 		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
 			
 			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
-			
+			List<Tool> cartToolList = new ArrayList<>();
 			if (session.getAttribute("shoppingCart") == null)  {
 				session.setAttribute("shoppingCart", new ArrayList <>());
 			}
-				((List<Tool>) session.getAttribute("shoppingCart")).add(addedTool);
+				cartToolList = (List<Tool>)session.getAttribute("shoppingCart");
+				cartToolList.add(addedTool);
 			
 			return "cartView";  
 		}
@@ -67,10 +69,14 @@ public class NewLoanController {
 		@RequestMapping( path={"/checkoutTools"} )
 		public String processLoan(HttpSession session) {
 			
+			Loan newLoan = new Loan();
+		
+			//loanDAO.saveLoanItem();
+				
 			//accept form submission
 			//change value of tool_inventory.inventory_availability
 			//insert new loan row in DB
-			
+				
 			session.invalidate();
 			
 			return "loanProcess";  
@@ -80,7 +86,4 @@ public class NewLoanController {
 		public String reviewLoan() {
 			return "redirect: homePage";  
 		}
-
-
-
 	}

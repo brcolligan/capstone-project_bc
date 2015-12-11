@@ -82,12 +82,12 @@ public class LoanDAO {
 		List<Loan> loanList = new ArrayList<>();
 		
 		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL";
-		jdbcTemplate.update(selectSQL);
-		Loan existingLoan = new Loan();
+		//jdbcTemplate.update(selectSQL);
+
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
-			
+			Loan existingLoan = new Loan();
 			populateLoanAttributes(existingLoan, results);			
 				loanList.add(existingLoan);
 		}
