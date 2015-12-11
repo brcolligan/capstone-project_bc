@@ -47,11 +47,7 @@ public class NewLoanController {
 				session.setAttribute("shoppingCart", new ArrayList <>());
 			}
 				((List<Tool>) session.getAttribute("shoppingCart")).add(addedTool);
-			
-			
-			
-			
-			
+	
 			
 			return "cartView";  
 		}
@@ -63,13 +59,22 @@ public class NewLoanController {
 			
 		}
 		@RequestMapping( path={"/removeFromCart"} )
-		public String removeFromCart(@RequestParam("toolId") int toolId, Map<String, Object> model) {
+		public String removeFromCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
+			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
+			
+			((List<Tool>) session.getAttribute("shoppingCart")).remove(addedTool);
 			return "cartView";  
 		}
 		
 		
 		@RequestMapping( path={"/checkoutTools"} )
 		public String processLoan() {
+			
+			//accept form submission
+			//change value of tool_inventory.inventory_availability
+			//insert new loan row in DB
+			//
+			
 			return "loanProcess";  
 		}
 		

@@ -19,15 +19,25 @@
     
  
     <h2>Tools in your Cart</h2>
+    <c:url value="/addTools" var="addTools"></c:url>
+    
+	<div>
+		<a href="${addTools}">add more items</a>
+	</div>
 	       
     <table style="width:40%" class="table">
         <th>Tool</th><th>Category</th><th>Due Date</th>
 	        <c:forEach var="addedTool" items="${shoppingCart}" varStatus="loopStatus">
+	        	
+	        	<c:url value="/removeFromCart" var="removeTools">
+    				<c:param name="toolInventoryId" value="${addedTool.toolInventoryId}" />
+    			</c:url>
+		       
 		        <tr>
 		           <td><c:out value="${addedTool.toolName}"/></td>
 		           <td><c:out value="${addedTool.toolCategoryName}"/></td>
 		           <td><c:out value="${addedTool.toolDueDate}"/></td>
-		           <td><a href="${addItemURL}"><c:out value="Remove From Cart"/> </a></td>
+		           <td><a href="${removeTools}"><c:out value="Remove From Cart"/> </a></td>
 		           	<!-- remove item from cart, do a redirect to this page & it will refresh without that item -->
 	        	</tr>
 			</c:forEach>
@@ -39,6 +49,10 @@
     <div class="fieldGroup">
     	<c:url value="/checkoutTools" var="formActionURL" />
     	<form class="form" action="${formActionURL}" method="POST">
+    
+     <div class="fieldGroup">
+        <input type="hidden" value="${shoppingCart }" />
+    	</div>
     
     <div class="fieldGroup">
         <input type="text" name="date" id="date" placeholder="Today's Date" />
@@ -64,11 +78,7 @@
    </form>	
     </div>
 
-<c:url value="/addTools" var="addTools">
-	</c:url>
-	<div>
-		<a href="${addTools}">add more items</a>
-	</div>
+
 
 <br> <br>
 
