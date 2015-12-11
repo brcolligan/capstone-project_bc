@@ -33,7 +33,9 @@
         
  </table>
  
- 		<c:url value="/processedReturn" var="processedReturnURL" />
+ 		<c:url value="/processedReturn" var="processedReturnURL">
+ 			<c:param name="loanId" value="${loan.loanId}" />
+ 		</c:url>
  		<a href = "${processedReturnURL }">
  			<button type="button">Finish</button>
  		</a>

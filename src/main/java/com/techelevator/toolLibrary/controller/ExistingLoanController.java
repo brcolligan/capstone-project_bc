@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,6 +18,7 @@ import com.techelevator.toolLibrary.model.LoanDAO;
 import com.techelevator.toolLibrary.model.Tool;
 
 @Controller
+@Transactional
 public class ExistingLoanController {
 	
 	private LoanDAO loanDAO;
@@ -45,11 +47,11 @@ public class ExistingLoanController {
 	}
 	
 	@RequestMapping( path= {"/processedReturn"} )
-	public String processedReturn() {
+	public String processedReturn( @RequestParam("loanId") int loanId) {
 		
+		loanDAO.updateReturnedItem(loanId);
 		
-		
-		return "existingLoans"; 
+		return "existingLoanList"; 
 	}
 	
 }

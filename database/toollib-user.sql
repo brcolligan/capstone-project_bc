@@ -14,7 +14,7 @@ TO toollib_owner;
 
 CREATE USER toollib_appuser WITH PASSWORD 'toollib_appuser1';
 
-GRANT SELECT, INSERT 
+GRANT SELECT, INSERT, UPDATE
 ON ALL TABLES IN SCHEMA public
 TO toollib_appuser;
 
