@@ -1,8 +1,11 @@
 package com.techelevator.toolLibrary.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.toolLibrary.model.Loan;
 import com.techelevator.toolLibrary.model.LoanDAO;
+import com.techelevator.toolLibrary.model.Tool;
 
 @Controller
 public class ExistingLoanController {
@@ -32,16 +36,22 @@ public class ExistingLoanController {
 
 	
 	@RequestMapping( path={"/loanReturn"} )
-	public String loanReturn( @RequestParam("loanId") int loanId,
-		     Map<String, Object> model ) {
+	public String loanReturn( @RequestParam("loanId") int loanId, HttpSession session ) {
 		Loan loanById = loanDAO.getLoanById(loanId);
-		model.put("loanById", loanById);
-		return "removeFromLoanPage"; 
+		if (session.getAttribute("loanList") == null)  {
+			session.setAttribute("loanList", new ArrayList <>());
+		}
+			((List<Loan>) session.getAttribute("loanList")).add(loanById);
+
+		return "loanReturn"; 
 	}
 	
 	
 	@RequestMapping( path= {"/processedReturn"} )
-	public String processedReturn() {
+	public String processedReturn(HttpSession session) {
+		
+		
+		session.invalidate();
 		return "redirect:homePage"; 
 	}
 

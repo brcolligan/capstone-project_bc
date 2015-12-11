@@ -17,15 +17,23 @@
 	</jsp:include>
 
 
- <ol class="table">
+ <table style="width:50%" class="table">
+        <th>Last Name</th><th>First Name</th><th>Tool Name</th><th>Rental Date</th><th>Due Date</th>
+	       
         <c:forEach var="loan" items="${loanList}" varStatus="loopStatus">           
-            <c:url value="/loanReturnPage" var="existingLoanList">
-                <c:param name="existingLoanList" value="${loan.id}" /> 
+            <c:url value="/loanReturn" var="addLoanURL">
+                <c:param name="loanId" value="${loan.loanId}" /> 
             </c:url>
-        
-        </c:forEach>
-        
-    </ol>
+           <tr>
+		           <td><c:out value="${loan.lastName}"/></td>
+		           <td><c:out value="${loan.firstName}"/></td>
+		           <td><c:out value="${loan.toolLoaned}"/></td>
+		           <td><c:out value="${loan.dateOfLoan}"/></td>
+		           <td><c:out value="${loan.expectedReturn}"/></td>
+		           <td><a href="${addLoanURL}"><c:out value="Return Loan"/> </a></td>
+	        	</tr>
+			</c:forEach>
+        </table>
 
 	
 	
