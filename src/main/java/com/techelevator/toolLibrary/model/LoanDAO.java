@@ -1,11 +1,10 @@
 package com.techelevator.toolLibrary.model;
 
 import javax.sql.DataSource;
-
-
-
+import static java.sql.Types.DATE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlParameterValue;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
@@ -37,17 +36,18 @@ public class LoanDAO {
 		results.next();
 		int id = results.getInt(1);
 
+		
+		
 		newLoan.setLoanId(id);
 
-		String insertSQL = "INSERT INTO loan(loan_id, inventory_id, tool_name, loan_start_date, loan_due_date, loan_end_date, user_first_name, user_last_name, user_phone_num, user_license_num) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO loan(loan_id, inventory_id, tool_name, loan_start_date, loan_due_date, user_first_name, user_last_name, user_phone_num, user_license_num) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 		jdbcTemplate.update(insertSQL,
 			    newLoan.getLoanId(),
 				newLoan.getInventoryId(),
 				newLoan.getToolLoaned(),
-				newLoan.getDateOfLoan(),
-				newLoan.getExpectedReturn(),
-				loanEndDate,
+				new SqlParameterValue(DATE, newLoan.getDateOfLoan()),
+				new SqlParameterValue(DATE, newLoan.getExpectedReturn()),
 				newLoan.getFirstName(),
 				newLoan.getLastName(),
 				newLoan.getPhoneNumber(),
@@ -57,10 +57,9 @@ public class LoanDAO {
 		// cleaningFee
 		);
 		
-		// String updateSQL = "UPDATE tool_inventory SET tool_available = 'f'
-		// WHERE inventory_id = ?";
+		 String updateSQL = "UPDATE tool_inventory SET tool_available = 'f' WHERE tool_inventory_id = ?";
 		
-		// jdbcTemplate.update(updateSQL, newLoan.getInventoryId());
+		jdbcTemplate.update(updateSQL, newLoan.getInventoryId());
 	}
 	
 	
@@ -81,7 +80,7 @@ public class LoanDAO {
 	public List<Loan> getListOfLoans(){ //exclude loans that are complete
 		List<Loan> loanList = new ArrayList<>();
 
-		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL";
+		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL ORDER BY loan_due_date asc, user_last_name asc, user_first_name asc";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
@@ -115,7 +114,7 @@ public class LoanDAO {
 					loanId
 			);
 			
-			 String updateSQL = "UPDATE tool_inventory SET tool_available = 'f' WHERE tool_inventory_id = ?";
+			 String updateSQL = "UPDATE tool_inventory SET tool_available = 't' WHERE tool_inventory_id = ?";
 			
 			 jdbcTemplate.update(updateSQL, getLoanById(loanId).getInventoryId());
 		}

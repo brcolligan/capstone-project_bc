@@ -51,7 +51,7 @@ public class ExistingLoanController {
 		
 		loanDAO.updateReturnedItem(loanId);
 		
-		return "existingLoanList"; 
+		return "redirect:/existingLoans"; 
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.techelevator.toolLibrary.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import java.util.Map;
@@ -40,12 +41,12 @@ public class NewLoanController {
 		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
 			
 			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
-			List<Tool> cartToolList = new ArrayList<>();
+			List<Tool> shoppingCart = new ArrayList<>();
 			if (session.getAttribute("shoppingCart") == null)  {
 				session.setAttribute("shoppingCart", new ArrayList <>());
 			}
-				cartToolList = (List<Tool>)session.getAttribute("shoppingCart");
-				cartToolList.add(addedTool);
+				shoppingCart = (List<Tool>)session.getAttribute("shoppingCart");
+				shoppingCart.add(addedTool);
 			
 			return "cartView";  
 		}
@@ -66,11 +67,29 @@ public class NewLoanController {
 		
 		
 		@RequestMapping( path={"/checkoutTools"} )
-		public String processLoan(HttpSession session) {
-			
-			Loan newLoan = new Loan();
-		
-			//loanDAO.saveLoanItem();
+		public String processLoan(HttpSession session, @RequestParam("firstName") String firstName, 
+														@RequestParam("lastName") String lastName,
+														@RequestParam("license") String licenseNum,
+														@RequestParam("phone") String phone,
+														@RequestParam("date") Date date) {
+
+			List<Tool> shoppingCart = (List<Tool>)session.getAttribute("shoppingCart");
+			Date todaysDate = new Date();
+			Date dueDate = todaysDate;
+			for(Tool toolItem : shoppingCart) {
+				 Loan newLoan = new Loan();
+				 newLoan.setDateOfLoan(date);
+				 newLoan.setDriversLicense(licenseNum);
+				 newLoan.setExpectedReturn(dueDate);
+				 newLoan.setFirstName(firstName);
+				 newLoan.setInventoryId(toolItem.getToolInventoryId());
+				 newLoan.setLastName(lastName);
+				 newLoan.setPhoneNumber(phone);
+				 newLoan.setToolLoaned(toolItem.getToolName());
+				 
+				loanDAO.saveLoanItem(newLoan);
+			 }
+	
 				
 			//accept form submission
 			//change value of tool_inventory.inventory_availability
