@@ -15,7 +15,6 @@
 		<jsp:param name="pageTitle" value="Tool Library" />
 	</jsp:include>
 
-
 	<c:url value="/addTools" var="addTools">
 	</c:url>
 	<c:url value="/existingLoans" var="existingLoans">
@@ -25,30 +24,10 @@
 		<a href="${addTools}">NEW LOANS</a>
 	</div>
 	<br>
-	<br>
+
 	<div>
 		<a href="${existingLoans}">EXISTING LOANS</a>
 	</div>
 
-
-
-
-	<!-- <div>
-<form action=${addTools} method="get">
-<button type="button">NEW LOANS</button>
-</form>
-</div>
-
-<div>
-<form action=${existingLoans} method="get">
-<button type="button">EXISTING LOANS</button>
-</form>
-</div> -->
-
-
-
-
-
 </body>
-
 </html>
