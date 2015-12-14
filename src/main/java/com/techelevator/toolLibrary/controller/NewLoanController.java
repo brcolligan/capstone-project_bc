@@ -18,11 +18,8 @@ import com.techelevator.toolLibrary.model.LoanDAO;
 import com.techelevator.toolLibrary.model.Tool;
 
 @Controller
-
 public class NewLoanController {
-	
 	private LoanDAO loanDAO;
-	
 	
 	@Autowired
 	public NewLoanController(LoanDAO loanDAO) {
@@ -35,7 +32,6 @@ public class NewLoanController {
 			model.put("toolList", toolList);
 			return "inventoryList";  
 		}
-			
 		
 		@RequestMapping( path={"/addToCart"})
 		public String addToCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
@@ -47,7 +43,6 @@ public class NewLoanController {
 			}
 				shoppingCart = (List<Tool>)session.getAttribute("shoppingCart");
 				shoppingCart.add(addedTool);
-			
 			return "cartView";  
 		}
 		
@@ -55,16 +50,14 @@ public class NewLoanController {
 		@RequestMapping( path={"/viewCart"} )
 		public String viewLoan() {
 			return "cartView";  
-			
-			
 		}
+		
 		@RequestMapping( path={"/removeFromCart"} )
 		public String removeFromCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
 			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
 			((List<Tool>) session.getAttribute("shoppingCart")).remove(addedTool);
 			return "cartView";  
 		}
-		
 		
 		@RequestMapping( path={"/checkoutTools"} )
 		public String processLoan(HttpSession session, @RequestParam("firstName") String firstName, 
@@ -86,17 +79,14 @@ public class NewLoanController {
 				 newLoan.setLastName(lastName);
 				 newLoan.setPhoneNumber(phone);
 				 newLoan.setToolLoaned(toolItem.getToolName());
-				 
 				loanDAO.saveLoanItem(newLoan);
 			 }
-	
 				
 			//accept form submission
 			//change value of tool_inventory.inventory_availability
 			//insert new loan row in DB
 				
 			session.invalidate();
-			
 			return "loanProcess";  
 		}
 		

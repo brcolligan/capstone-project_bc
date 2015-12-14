@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 @Component
 public class LoanDAO {
 
@@ -22,7 +21,6 @@ public class LoanDAO {
 	public LoanDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
 	
 	public void saveLoanItem(Loan newLoan) {
 		
@@ -36,8 +34,6 @@ public class LoanDAO {
 		results.next();
 		int id = results.getInt(1);
 
-		
-		
 		newLoan.setLoanId(id);
 
 		String insertSQL = "INSERT INTO loan(loan_id, inventory_id, tool_name, loan_start_date, loan_due_date, user_first_name, user_last_name, user_phone_num, user_license_num) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -119,11 +115,6 @@ public class LoanDAO {
 			 jdbcTemplate.update(updateSQL, getLoanById(loanId).getInventoryId());
 		}
 		
-		
-		
-		
-
-	
 	public List<Tool> getListOfAvailableTools() {
 	
 		Tool foundTool = null;
@@ -145,7 +136,6 @@ public class LoanDAO {
 		}		
 		return availableToolList;
 	}
-	
 	
 	public Tool getToolByInventoryId(int toolInventoryId) {
 		
@@ -178,7 +168,5 @@ public class LoanDAO {
 		existingLoan.setToolLoaned(results.getString("tool_name"));
 		existingLoan.setEndDate(results.getDate("loan_end_date"));
 	}
-	
-	
 }
 
