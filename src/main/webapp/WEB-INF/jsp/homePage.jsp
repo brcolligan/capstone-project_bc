@@ -22,36 +22,13 @@
 		<c:url value="/img/newLoan.jpg" var="newLoan" />
    			<img src="${newLoan}" id="newLoan" />
 			</a>
-
+			
 		<c:url value="/existingLoans" var="existingLoans" />
 			<a href="${existingLoans}"> 
 		<c:url value="/img/existingLoans.jpg" var="existingLoans" />
     		<img src="${existingLoans}" id="existingLoans" />
 			</a>
-		
-	
-			
 	</div>
-
-
-
-
-	<!-- <div>
-<form action=${addTools} method="get">
-<button type="button">NEW LOANS</button>
-</form>
-</div>
-
-<div>
-<form action=${existingLoans} method="get">
-<button type="button">EXISTING LOANS</button>
-</form>
-</div> -->
-
-
-
-
-
-</body>
-
+	
+	</body>
 </html>
