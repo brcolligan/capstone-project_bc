@@ -4,7 +4,7 @@
 <br><br>
 <c:url value="/" var="homePageURL" />
 	<a href="${homePageURL}"> 
-<c:url value="/img/placeholer.png" var="logoURL" />
+<c:url value="/img/logo.jpg" var="logoURL" />
     <img src="${logoURL}" id="logo" />
 </a>
 </div>

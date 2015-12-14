@@ -15,29 +15,64 @@
 .color-secondary-2-2 { color: #000000 }
 .color-secondary-2-3 { color: #FFCDB5 }
 .color-secondary-2-4 { color: #C8531A } */
+html, body {
+	
+    height: 100%;
+}
 
+html {
+    display: table;
+    margin: auto;
+    background-image: /img/("woodBackground.jpg");
+}
+img {
+	border: 3px solid #000000;
+}
+
+#content {
+ 
+   
+    padding : 1em;
+    color : black;
+    text-align: center;
+}
 .header-banner {
-	background-color: #C8811A;
+	text-align: center;
+	background-color: #004011;
+	
 }
 
 .footer-banner {
 	background-color: #C8811A;
 }
 
+.homeSelection {
+    text-align: center;
+    padding : 1em;
+    background-color : #7fbf90;
+    border: 3px solid #000000; 
+}
+
 .table {
-	background-color : #FFF7ea;
-	width:1000px;
+	background-color : #7fbf90;
+	vertical-align: middle;
+	
 }
 
 .form {
-	background-color : #FFF7ea;
-	width: 800px
+	background-color : #7fbf90;
+	
 }
 ;
 
 body {
+	
+	width : 800px;
     background-color : #909090;
-    color : white;
+    color : black;
+    display: table-cell;
+    vertical-align: middle;
+    
 }
 
 a {
@@ -49,25 +84,25 @@ a:visited {
 }
 
 h2 {
-	background-color :#6e6f70;
-	color: black;
-	  text-shadow: 1px 4px 2px #333;
+	text-align: center;
+	
+	background-color :#105f25;
+	color: #7fbf90;
+	text-shadow: 1px 4px 2px #333;
+}
+.fieldGroup {
+	margin-bottom : 8px;
 }
 
 
-/*
 #logo {
-    width : 600px;
+    
     height : 150px;
     margin-bottom : 1em;
+    width : 800px;
 }
 
-#content {
-    width : 800px;
-    background-color : white;
-    padding : 1em;
-    color : black;
-}
+/*
 
 div.insertBox {
     padding : 1em;
@@ -90,9 +125,7 @@ div.planet img {
     float : left;
 }
 
-.fieldGroup {
-	margin-bottom : 8px;
-}
+
 
 input {
 	margin-right : 1em;
