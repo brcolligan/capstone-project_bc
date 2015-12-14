@@ -16,7 +16,7 @@
 
 	<h2>Available Inventory</h2>
 	
-	<table style="width: 50%" class="table">
+	<table class="tableList">
 		<th>Tool</th>
 		<th>Category</th>
 		<th>Id</th>
@@ -28,8 +28,17 @@
 			<c:url value="/addToCart" var="addItemURL">
 				<c:param name="toolInventoryId" value="${tool.toolInventoryId}" />
 			</c:url>
+				
+			<c:choose>
+				<c:when test="${loopStatus.count % 2 == 0}">
+					<c:set var="itemClass" value="even" />     
+				</c:when>
+				<c:otherwise>
+					<c:set var="itemClass" value="odd" />
+				</c:otherwise>
+			</c:choose>
 
-			<tr>
+			<tr class = "${itemClass}">
 				<td><c:out value="${tool.toolName}" /></td>
 				<td><c:out value="${tool.toolCategoryName}" /></td>
 				<td><c:out value="${tool.toolId}" /></td>

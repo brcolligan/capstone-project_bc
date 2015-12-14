@@ -22,7 +22,7 @@
 		<a href="${addTools}">add more items</a>
 	</div>
 
-	<table style="width: 40%" class="table">
+	<table class="tableList">
 		<th>Tool</th>
 		<th>Category</th>
 		<th>Due Date</th>

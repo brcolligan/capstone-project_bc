@@ -41,6 +41,9 @@ img {
 	background-color: #004011;
 	
 }
+.tableList .even {
+	background-color : #DE8564;
+}
 
 .footer-banner {
 	background-color: #C8811A;
@@ -53,10 +56,21 @@ img {
     border: 3px solid #000000; 
 }
 
-.table {
-	background-color : #7fbf90;
-	vertical-align: middle;
+.tableList {
 	
+	list-style-type : none;
+	background-color : #7fbf90;
+	width : 800px;
+	text-align: center;
+	padding : 0;
+}
+
+.tableList tr {
+	padding : 5px;
+}
+
+.tableList .even {
+	background-color : #daf8e3;
 }
 
 .form {
@@ -87,7 +101,7 @@ h2 {
 	text-align: center;
 	
 	background-color :#105f25;
-	color: #7fbf90;
+	color: #93f2a9;
 	text-shadow: 1px 4px 2px #333;
 }
 .fieldGroup {

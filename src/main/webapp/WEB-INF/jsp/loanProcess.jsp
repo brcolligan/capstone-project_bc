@@ -17,6 +17,8 @@
 	</jsp:include>
 
 	<H2>Thank you for your transaction.</H2>
+	
+	
 
 	<c:url value="/homePage" var="homePageURL" />
 	<a href="${homePageURL}">Click here to return to the Homepage.</a> 
