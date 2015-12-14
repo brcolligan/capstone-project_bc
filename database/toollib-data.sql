@@ -435,11 +435,22 @@ SELECT setval('seq_tool_inventory_id', 318);
 
 -- TODO: TEST LOAN DATA; REMOVE BEFORE GO-LIVE
 INSERT INTO loan (loan_id, inventory_id, tool_name, loan_start_date, loan_due_date, loan_end_date, user_first_name, user_last_name, user_license_num, user_phone_num, late_fee, maintenance_fee, cleaning_fee)
-VALUES (nextval('seq_loan_id'), 188, 'Air Pump', '2015-12-08', '2015-12-15', '2015-12-13', 'John', 'Doe', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 13, 'House Broom', '2015-12-08', '2015-12-15', '2015-12-13', 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
+VALUES (nextval('seq_loan_id'), 188, 'Air Pump', '2015-12-08', '2015-12-15', null, 'John', 'Doe', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 13, 'House Broom', '2015-12-08', '2015-12-15', null, 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
 (nextval('seq_loan_id'), 92, 'Ladder, Stabilizer', '2015-12-08', '2015-12-15',null, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
 (nextval('seq_loan_id'), 96, 'Miter Box', '2015-12-08', '2015-12-15',null, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 125, 'Air Pump', '2015-12-08', '2015-12-15', '2015-12-13', 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4);
+(nextval('seq_loan_id'), 125, 'Air Pump', '2015-12-10', '2015-12-17', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 186, 'Router', '2015-12-08', '2015-12-15', null, 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 232, 'Leaf Blower, Gas', '2015-12-08', '2015-12-15',null, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 166, 'Hammer, Tack', '2015-12-08', '2015-12-15',null, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 227, 'Hatchet', '2015-12-9', '2015-12-16', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 290, 'Grass Shear', '2015-12-11', '2015-12-18',null, 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 280, 'Extension Pole, Fiberglass', '2015-12-09', '2015-12-16',null, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 84, 'Edger, Lawn, Gasoline', '2015-12-08', '2015-12-15',null, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 77,'Dolly, Furniture', '2015-12-12', '2015-12-19', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4);
+
+
+UPDATE tool_inventory SET tool_available = 'F' WHERE tool_inventory_id IN (188, 13, 92, 96, 125, 186, 232, 166, 227, 290, 280, 84, 77);
 
 
 COMMIT;

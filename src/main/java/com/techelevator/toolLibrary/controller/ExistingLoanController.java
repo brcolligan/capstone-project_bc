@@ -40,6 +40,6 @@ public class ExistingLoanController {
 	@RequestMapping( path= {"/processedReturn"} )
 	public String processedReturn( @RequestParam("loanId") int loanId) {
 		loanDAO.updateReturnedItem(loanId);
-		return "existingLoanList";
+		return "redirect:/existingLoans";
 	}
 }
