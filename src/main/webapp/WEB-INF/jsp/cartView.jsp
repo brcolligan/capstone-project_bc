@@ -54,7 +54,7 @@
 			</div>
 
 			<div class="fieldGroup">
-				<input type="number" name="date" id="date" placeholder="Today's Date" required />
+				<input type="text" name="date" id="date" placeholder="mm/dd/yyyy" required />
 			</div>
 
 			<div class="fieldGroup">

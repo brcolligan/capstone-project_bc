@@ -162,7 +162,7 @@ public class LoanDAO {
 		existingLoan.setFirstName(results.getString("user_first_name"));
 		existingLoan.setLastName(results.getString("user_last_name"));
 		existingLoan.setDateOfLoan(results.getDate("loan_start_date"));
-		existingLoan.setExpectedReturn(results.getDate("loan_due_date"));
+		existingLoan.setExpectedReturn(results.getDate("loan_due_date").toLocalDate());
 		existingLoan.setDriversLicense(results.getString("user_license_num"));
 		existingLoan.setPhoneNumber(results.getString("user_phone_num"));
 		existingLoan.setToolLoaned(results.getString("tool_name"));

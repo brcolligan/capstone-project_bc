@@ -1,6 +1,7 @@
 package com.techelevator.toolLibrary.model;
 
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class Loan {
@@ -14,7 +15,7 @@ public class Loan {
 	private String driversLicense;
 	private String phoneNumber;
 	private Date dateOfLoan;
-	private Date expectedReturn;
+	private LocalDate expectedReturn;
 	private Date endDate;
 	private double lateFee;
 	private double maintenanceFee;
@@ -44,7 +45,7 @@ public class Loan {
 		return driversLicense;
 	}
 
-	public Date getExpectedReturn() {
+	public LocalDate getExpectedReturn() {
 		return expectedReturn;
 	}
 
@@ -88,7 +89,7 @@ public class Loan {
 		this.driversLicense = driversLicense;
 	}
 
-	public void setExpectedReturn(Date expectedReturn) {
+	public void setExpectedReturn(LocalDate expectedReturn) {
 		this.expectedReturn = expectedReturn;
 	}
 

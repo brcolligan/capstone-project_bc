@@ -1,5 +1,6 @@
 package com.techelevator.toolLibrary.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,12 +69,16 @@ public class NewLoanController {
 
 			List<Tool> shoppingCart = (List<Tool>)session.getAttribute("shoppingCart");
 			Date todaysDate = new Date();
-			Date dueDate = todaysDate;
 			for(Tool toolItem : shoppingCart) {
 				 Loan newLoan = new Loan();
 				 newLoan.setDateOfLoan(date);
 				 newLoan.setDriversLicense(licenseNum);
-				 newLoan.setExpectedReturn(dueDate);
+				 try {
+					newLoan.setExpectedReturn(toolItem.getToolDueDate());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				 newLoan.setFirstName(firstName);
 				 newLoan.setInventoryId(toolItem.getToolInventoryId());
 				 newLoan.setLastName(lastName);
