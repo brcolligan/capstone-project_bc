@@ -21,7 +21,7 @@
 		<th>Tool Name</th>
 		<th>Rental Date</th>
 		<th>Due Date</th>
-		<th>Check <br>Cleaning Fee </th>
+		<th>Cleaning Fee </th>
 		</tr>
 	
 		<c:forEach var="loan" items="${loanList}" varStatus="loopStatus">
@@ -44,7 +44,8 @@
 				<td><c:out value="${loan.expectedReturn}" /></td>
 				<td><form action="${loanReturnURL}" method="GET">
 					<input type ="hidden" id = "loanId" name="loanId" value ="${loan.loanId}">
-					<input type="checkbox" id = "cleaningFee" name="cleaningFee" value="True">
+					<input type="radio" name="cleaningFee" value="true">True
+					<input type="radio" name="cleaningFee" value="false" checked>False
 					<input type="submit" value="Return Loan"></form></td>
 			</tr>
 			
