@@ -24,9 +24,10 @@ public class FeesCalculator {
 			return 0.0;
 		}
 	}
-
-	public double calculateMaintenanceFees(String toolCategoryName) {
-		if (toolCategoryName == "Gasoline Power Tool") {
+	
+	public static double calculateMaintenanceFees(String toolCategoryName) {
+		String stringToCompare = "Gasoline Power Tool";
+		if (toolCategoryName.equals(stringToCompare)) {
 			return gasPoweredMaintFee;
 		} else {
 			return 0.0;
@@ -39,9 +40,7 @@ public class FeesCalculator {
 
 		if (daysLate > 0 && tool.getToolLoanPeriod() == 1) {
 			lateFees += daysLate * dayRentalDailyLateFee;
-		}
-
-		if (daysLate > 0) {
+		}else if (daysLate > 0) {
 			if (tool.getToolCategoryName() == "Electric Power Tool"||tool.getToolCategoryName()=="Gasoline Power Tool") {
 				lateFees += (daysLate * powerToolDailyLateFee);
 			} else if (tool.getToolCategoryName() == "Hand Tool") {

@@ -69,7 +69,7 @@ public class LoanDAO {
 	
 	 public Loan getLoanById(int loanId) {
 		Loan existingLoan = new Loan();
-		String selectSQL = "SELECT * FROM loan WHERE loan_id = ?";
+		String selectSQL = "SELECT loan.*, tool_category.name as tool_category_name FROM loan INNER JOIN tool_inventory ON loan.inventory_id = tool_inventory.tool_inventory_id INNER JOIN tool ON tool_inventory.tool_id = tool.tool_id INNER JOIN tool_category ON tool.tool_category_id = tool_category.tool_category_id WHERE loan_id = ?";
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL, loanId);
 		
@@ -83,7 +83,7 @@ public class LoanDAO {
 	public List<Loan> getListOfLoans(){ //exclude loans that are complete
 		List<Loan> loanList = new ArrayList<>();
 
-		String selectSQL = "SELECT * FROM loan WHERE loan_end_date IS NULL ORDER BY loan_due_date asc, user_last_name asc, user_first_name asc";
+		String selectSQL = "SELECT loan.*, tool_category.name as tool_category_name FROM loan INNER JOIN tool_inventory ON loan.inventory_id = tool_inventory.tool_inventory_id INNER JOIN tool ON tool_inventory.tool_id = tool.tool_id INNER JOIN tool_category ON tool.tool_category_id = tool_category.tool_category_id WHERE loan_end_date IS NULL ORDER BY loan_due_date asc, user_last_name asc, user_first_name asc";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
@@ -94,19 +94,13 @@ public class LoanDAO {
 		return loanList;
 	}
 	
-	public void updateReturnedItem(int loanId, double cleaningFee){
+	public void updateReturnedItem(int loanId, double cleaningFee, double lateFee, double maintenanceFee){
 	
 		// update tool_inventory.tool_available to 't'
 		// update loan.loan_end_date to current_date
 		// update loan.late_fee, loan.maintenance_fee, loan.cleaning_fee as
 		// needed
-	
-	
 
-			Double lateFee = 0d;
-			Double maintenanceFee = 0d;
-			
-		
 			String insertSQL = "UPDATE loan SET loan_end_date = ?, late_fee = ?, maintenance_fee = ?, cleaning_fee = ? WHERE loan_id = ?";
 		
 			jdbcTemplate.update(insertSQL,
@@ -174,6 +168,7 @@ public class LoanDAO {
 		existingLoan.setPhoneNumber(results.getString("user_phone_num"));
 		existingLoan.setToolLoaned(results.getString("tool_name"));
 		existingLoan.setEndDate(loanEndDate);
+		existingLoan.setToolCategoryName(results.getString("tool_category_name"));
 	}
 }
 
