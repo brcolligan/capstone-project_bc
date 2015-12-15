@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class=header-banner style="width:1200px; text-align:center;">
+<div class=header-banner style="text-align:center;">
 <br><br>
 <c:url value="/" var="homePageURL" />
 	<a href="${homePageURL}"> 

@@ -37,8 +37,7 @@
 				<td><c:out value="${addedTool.toolName}" /></td>
 				<td><c:out value="${addedTool.toolCategoryName}" /></td>
 				<td><c:out value="${addedTool.toolDueDate}" /></td>
-				<td><a href="${removeTools}"><c:out
-							value="Remove From Cart" /> </a></td>
+				<td><a href="${removeTools}"><c:out value="Remove From Cart" /> </a></td>
 				<!-- remove item from cart, do a redirect to this page & it will refresh without that item -->
 			</tr>
 		</c:forEach>
@@ -48,29 +47,29 @@
 
 	<div class="fieldGroup">
 		<c:url value="/checkoutTools" var="formActionURL" />
-		<form class="form" action="${formActionURL}" method="POST">
+		<form class="form" action="${formActionURL}" method="POST"  >
 
 			<div class="fieldGroup">
 				<input type="hidden" value="${shoppingCart }" />
 			</div>
 
 			<div class="fieldGroup">
-				<input type="text" name="date" id="date" placeholder="Today's Date" />
+				<input type="number" name="date" id="date" placeholder="Today's Date" required />
 			</div>
 
 			<div class="fieldGroup">
-				<input type="text" name="firstName" id="firstName"
-					placeholder="First Name" /> <input type="text" name="lastName"
-					id="lastName" placeholder="Last Name" />
+				<input type="text" name="firstName" id="firstName" placeholder="First Name" required/> 
+			</div>
+			<div class="fieldGroup">
+				<input type="text" name="lastName" id="lastName" placeholder="Last Name" required/>
 			</div>
 
 			<div class="fieldGroup">
-				<input type="text" name="license" id="license"
-					placeholder="Driver's license #" />
+				<input type="text" name="license" id="license" placeholder="Driver's license #" required/>
 			</div>
 
 			<div class="fieldGroup">
-				<input type="text" name="phone" id="phone" placeholder="Phone #" />
+				<input type="number" name="phone" id="phone" placeholder="Phone #" size = "10" required/>
 			</div>
 
 			<div class="fieldGroup">

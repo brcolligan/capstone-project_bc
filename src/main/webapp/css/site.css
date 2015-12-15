@@ -18,15 +18,19 @@
 html, body {
 	
     height: 100%;
+   
+    width: 800px;
+    
 }
 
 html {
     display: table;
     margin: auto;
-    background-image: /img/("woodBackground.jpg");
+  
 }
 img {
-	border: 3px solid #000000;
+	
+	width: 800px;
 }
 
 #content {
@@ -35,10 +39,15 @@ img {
     padding : 1em;
     color : black;
     text-align: center;
+    background-color : #c68e69;
+    
+    
 }
 .header-banner {
-	text-align: center;
+	
 	background-color: #004011;
+	width: 800px;
+	
 	
 }
 .tableList .even {
@@ -62,26 +71,33 @@ img {
 	background-color : #7fbf90;
 	width : 800px;
 	text-align: center;
-	padding : 0;
+	padding : 0px;
+	
 }
 
 .tableList tr {
 	padding : 5px;
+	
 }
 
 .tableList .even {
 	background-color : #daf8e3;
+
 }
 
 .form {
+	margin: 0 auto; 
 	background-color : #7fbf90;
+	vertical-align: middle;
+	text-align: center;
+	
 	
 }
 ;
 
 body {
 	
-	width : 800px;
+	
     background-color : #909090;
     color : black;
     display: table-cell;

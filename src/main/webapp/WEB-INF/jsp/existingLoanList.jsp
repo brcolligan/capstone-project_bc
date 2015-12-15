@@ -21,12 +21,15 @@
 		<th>Tool Name</th>
 		<th>Rental Date</th>
 		<th>Due Date</th>
-		<th><input type="checkbox" name="cleaning" value="cleaning"></th>
+		
+		<th>
 		</tr>
+		
 		<c:forEach var="loan" items="${loanList}" varStatus="loopStatus">
 			<c:url value="/loanReturn" var="addLoanURL">
 				<c:param name="loanId" value="${loan.loanId}" />
-				<c:param name="cleaning" value="${cleaning}" />
+				<c:param name ="cleaning" value="${cleaning}" />
+				
 			</c:url>
 				<c:choose>
 				<c:when test="${loopStatus.count % 2 == 0}">
@@ -44,7 +47,10 @@
 				<td><c:out value="${loan.expectedReturn}" /></td>
 				<td><a href="${addLoanURL}"><c:out value="Return Loan" /> </a></td>
 			</tr>
+			
 		</c:forEach>
+		
 	</table>
+	
 </body>
 </html>

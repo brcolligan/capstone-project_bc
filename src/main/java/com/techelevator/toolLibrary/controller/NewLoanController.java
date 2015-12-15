@@ -55,10 +55,14 @@ public class NewLoanController {
 		@RequestMapping( path={"/removeFromCart"} )
 		public String removeFromCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
 			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
-			((List<Tool>) session.getAttribute("shoppingCart")).remove(addedTool);
+			((List<Tool>) session.getAttribute("shoppingCart")).remove();
 			return "cartView";  
 		}
 		
+		private Object indexOf(int toolInventoryId) {
+			return null;
+		}
+
 		@RequestMapping( path={"/checkoutTools"} )
 		public String processLoan(HttpSession session, @RequestParam("firstName") String firstName, 
 														@RequestParam("lastName") String lastName,
