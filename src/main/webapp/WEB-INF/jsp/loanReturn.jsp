@@ -19,28 +19,35 @@
 		<tr>
 			<th><c:out value="First Name" /></th>
 			<td><c:out value="${loan.firstName }" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Last Name" /></th>
 			<td><c:out value="${loan.lastName }" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Phone Number" /></th>
 			<td><c:out value="${loan.phoneNumber }" /></td>
-	
+		</tr>
 		<tr>
 			<th><c:out value="Tool Loaned" /></th>
 			<td><c:out value="${loan.toolLoaned}" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Date Loaned" /></th>
 			<td><c:out value="${loan.dateOfLoan }" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Due Date" /></th>
 			<td><c:out value="${loan.expectedReturn }" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Late Fees" /></th>
 			<td><c:out value="${loan.lateFee }" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Maintenance Fee" /></th>
 			<td><c:out value="${loan.maintenanceFee }" /></td>
+		</tr>
 		<tr>
 			<th><c:out value="Cleaning Fee" /></th>
 			<td><c:out value="${cleaningFee }" /></td>
