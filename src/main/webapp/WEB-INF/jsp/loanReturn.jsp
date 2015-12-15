@@ -49,6 +49,7 @@
 
 	<c:url value="/processedReturn" var="processedReturnURL">
 		<c:param name="loanId" value="${loan.loanId}" />
+		<c:param name="cleaningFee" value="${cleaningFee}" />
 	</c:url>
 	<a href="${processedReturnURL }">
 		<button type="button">Finish</button>

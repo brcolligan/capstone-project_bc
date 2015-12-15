@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameterValue;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,12 +27,14 @@ public class LoanDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	
+	
 	public void saveLoanItem(Loan newLoan) {
 		
 		Date loanEndDate=null;
-		Double lateFee = 0d;
-		Double maintenanceFee = 0d;
-		Double cleaningFee = 0d;
+		//Double lateFee = 0d;
+		//Double maintenanceFee = 0d;
+		//Double cleaningFee = 0d;
 		
 		String nextIdSQL = "SELECT nextval('seq_loan_id')";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(nextIdSQL);
@@ -91,7 +94,7 @@ public class LoanDAO {
 		return loanList;
 	}
 	
-	public void updateReturnedItem(int loanId){
+	public void updateReturnedItem(int loanId, double cleaningFee){
 	
 		// update tool_inventory.tool_available to 't'
 		// update loan.loan_end_date to current_date
@@ -102,8 +105,8 @@ public class LoanDAO {
 
 			Double lateFee = 0d;
 			Double maintenanceFee = 0d;
-			Double cleaningFee = 0d;
-
+			
+		
 			String insertSQL = "UPDATE loan SET loan_end_date = ?, late_fee = ?, maintenance_fee = ?, cleaning_fee = ? WHERE loan_id = ?";
 		
 			jdbcTemplate.update(insertSQL,

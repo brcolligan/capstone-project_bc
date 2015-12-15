@@ -46,12 +46,15 @@ public class ExistingLoanController {
 		model.put("loan", loanById);	
 		model.put("cleaningFee", cleaningFee);
 		model.put("endDate", endDate);
+		loanById.setCleaningFee(cleaningFee);
 		return "loanReturn"; 
 	}
 	
 	@RequestMapping( path= {"/processedReturn"} )
-	public String processedReturn( @RequestParam("loanId") int loanId) {
-		loanDAO.updateReturnedItem(loanId);
+	public String processedReturn( @RequestParam("loanId") int loanId,
+									@RequestParam("cleaningFee") double cleaningFee
+			) {
+		loanDAO.updateReturnedItem(loanId, cleaningFee);
 		return "redirect:/existingLoans";
 	}
 }
