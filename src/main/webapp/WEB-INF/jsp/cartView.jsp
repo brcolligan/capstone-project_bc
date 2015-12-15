@@ -57,7 +57,7 @@
 			</div>
 
 			<div class="fieldGroup">
-				<input type="text" name="date" id="date" placeholder="mm/dd/yyyy" required />
+				<input type="text" name="date" id="date" placeholder="yyyy-mm-dd" required />
 			</div>
 
 			<div class="fieldGroup">
