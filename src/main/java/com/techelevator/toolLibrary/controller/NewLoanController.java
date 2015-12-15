@@ -1,6 +1,7 @@
 package com.techelevator.toolLibrary.controller;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,10 +67,10 @@ public class NewLoanController {
 														@RequestParam("lastName") String lastName,
 														@RequestParam("license") String licenseNum,
 														@RequestParam("phone") String phone,
-														@RequestParam("date") Date date) {
+														@RequestParam("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
 
 			List<Tool> shoppingCart = (List<Tool>)session.getAttribute("shoppingCart");
-			Date todaysDate = new Date();
+			LocalDate todaysDate = LocalDate.now();
 			for(Tool toolItem : shoppingCart) {
 				 Loan newLoan = new Loan();
 				 newLoan.setDateOfLoan(date);

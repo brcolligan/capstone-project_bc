@@ -36,14 +36,14 @@
 			<th><c:out value="Due Date" /></th>
 			<td><c:out value="${loan.expectedReturn }" /></td>
 		<tr>
-			<th><c:out value="Due Date" /></th>
+			<th><c:out value="Late Fees" /></th>
 			<td><c:out value="${loan.lateFee }" /></td>
 		<tr>
 			<th><c:out value="Maintenence Fee" /></th>
 			<td><c:out value="${loan.maintenanceFee }" /></td>
 		<tr>
 			<th><c:out value="Cleaning Fee" /></th>
-			<td><c:out value="${loan.cleaningFee }" /></td>
+			<td><c:out value="${cleaningFee }" /></td>
 		</tr>
 	</table>
 

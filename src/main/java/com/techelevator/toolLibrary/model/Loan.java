@@ -14,9 +14,9 @@ public class Loan {
 	private String lastName;
 	private String driversLicense;
 	private String phoneNumber;
-	private Date dateOfLoan;
+	private LocalDate dateOfLoan;
 	private LocalDate expectedReturn;
-	private Date endDate;
+	private LocalDate endDate;
 	private double lateFee;
 	private double maintenanceFee;
 	private double cleaningFee;
@@ -49,11 +49,11 @@ public class Loan {
 		return expectedReturn;
 	}
 
-	public Date getDateOfLoan() {
+	public LocalDate getDateOfLoan() {
 		return dateOfLoan;
 	}
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
@@ -93,11 +93,11 @@ public class Loan {
 		this.expectedReturn = expectedReturn;
 	}
 
-	public void setDateOfLoan(Date dateOfLoan) {
+	public void setDateOfLoan(LocalDate dateOfLoan) {
 		this.dateOfLoan = dateOfLoan;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 

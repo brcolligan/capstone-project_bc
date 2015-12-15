@@ -1,5 +1,6 @@
 package com.techelevator.toolLibrary.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.techelevator.toolLibrary.model.FeesCalculator;
 import com.techelevator.toolLibrary.model.Loan;
 import com.techelevator.toolLibrary.model.LoanDAO;
 import com.techelevator.toolLibrary.model.Tool;
@@ -31,9 +34,18 @@ public class ExistingLoanController {
 	}
 
 	@RequestMapping( path={"/loanReturn"} )
-	public String loanReturn( @RequestParam("loanId") int loanId, Map<String, Object> model) {
+	public String loanReturn( @RequestParam("loanId") int loanId, Map<String, Object> model,
+								@RequestParam("cleaningFee") boolean applyCleaningFee
+								) {
+	
 		Loan loanById = loanDAO.getLoanById(loanId);
-		model.put("loan", loanById);		
+		double cleaningFee = FeesCalculator.calculateCleaningFee(applyCleaningFee);
+		double lateFees = FeesCalculator.calculateLateFees(loanById.getExpectedReturn(),loanById.getEndDate());
+		LocalDate endDate = LocalDate.now();
+		
+		model.put("loan", loanById);	
+		model.put("cleaningFee", cleaningFee);
+		model.put("endDate", endDate);
 		return "loanReturn"; 
 	}
 	

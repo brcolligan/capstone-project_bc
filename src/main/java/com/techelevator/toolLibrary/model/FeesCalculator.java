@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class FeesCalculator {
 	private Loan loan;
-	private Tool tool;
+	private static Tool tool;
 	private LocalDate expectedReturn;
 	private LocalDate endDate;
 	private static final double handToolDailyLateFee = 0.50d;
@@ -14,9 +14,10 @@ public class FeesCalculator {
 	private static final double dayRentalDailyLateFee = 5.0d;
 	private static final double gasPoweredMaintFee = 2.0d;
 	private double cleaningFee = 0.0d; // librarian discretion.
-	double lateFees = 0.0d;
+	static double lateFees = 0.0d;
 
-	public double calculateCleaningFee(boolean applyCleaningFee) {
+	
+	public static double calculateCleaningFee(boolean applyCleaningFee) {
 		if (applyCleaningFee) {
 			return 5.0;
 		} else {
@@ -32,9 +33,8 @@ public class FeesCalculator {
 		}
 	}
 
-	public double calculateLateFees(LocalDate expectedReturn, LocalDate endDate) {
-		this.expectedReturn = expectedReturn;
-		this.endDate = endDate;
+	public static double calculateLateFees(LocalDate expectedReturn, LocalDate endDate) {
+
 		long daysLate = DAYS.between(expectedReturn, endDate);
 
 		if (daysLate > 0 && tool.getToolLoanPeriod() == 1) {

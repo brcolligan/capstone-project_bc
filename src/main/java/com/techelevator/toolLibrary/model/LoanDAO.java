@@ -2,6 +2,9 @@ package com.techelevator.toolLibrary.model;
 
 import javax.sql.DataSource;
 import static java.sql.Types.DATE;
+
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameterValue;
@@ -16,6 +19,7 @@ import java.util.List;
 public class LoanDAO {
 
 	private JdbcTemplate jdbcTemplate;
+	LocalDate loanEndDate=LocalDate.now();
 	
 	@Autowired
 	public LoanDAO(DataSource dataSource) {
@@ -95,7 +99,7 @@ public class LoanDAO {
 		// needed
 	
 	
-			Date loanEndDate=new Date();
+
 			Double lateFee = 0d;
 			Double maintenanceFee = 0d;
 			Double cleaningFee = 0d;
@@ -103,7 +107,7 @@ public class LoanDAO {
 			String insertSQL = "UPDATE loan SET loan_end_date = ?, late_fee = ?, maintenance_fee = ?, cleaning_fee = ? WHERE loan_id = ?";
 		
 			jdbcTemplate.update(insertSQL,
-					loanEndDate,
+					new SqlParameterValue(DATE, loanEndDate),
 					lateFee,
 					maintenanceFee,
 					cleaningFee,
@@ -161,12 +165,12 @@ public class LoanDAO {
 		existingLoan.setInventoryId(results.getInt("inventory_id"));
 		existingLoan.setFirstName(results.getString("user_first_name"));
 		existingLoan.setLastName(results.getString("user_last_name"));
-		existingLoan.setDateOfLoan(results.getDate("loan_start_date"));
+		existingLoan.setDateOfLoan(results.getDate("loan_start_date").toLocalDate());
 		existingLoan.setExpectedReturn(results.getDate("loan_due_date").toLocalDate());
 		existingLoan.setDriversLicense(results.getString("user_license_num"));
 		existingLoan.setPhoneNumber(results.getString("user_phone_num"));
 		existingLoan.setToolLoaned(results.getString("tool_name"));
-		existingLoan.setEndDate(results.getDate("loan_end_date"));
+		existingLoan.setEndDate(loanEndDate);
 	}
 }
 
