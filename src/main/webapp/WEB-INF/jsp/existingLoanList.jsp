@@ -44,8 +44,8 @@
 				<td><c:out value="${loan.expectedReturn}" /></td>
 				<td><form action="${loanReturnURL}" method="GET">
 					<input type ="hidden" id = "loanId" name="loanId" value ="${loan.loanId}">
-					<input type="radio" name="cleaningFee" value="true">True
-					<input type="radio" name="cleaningFee" value="false" checked>False
+					<input type="radio" name="cleaningFee" value="true">Yes
+					<input type="radio" name="cleaningFee" value="false" checked>No
 					<input type="submit" value="Return Loan"></form></td>
 			</tr>
 			

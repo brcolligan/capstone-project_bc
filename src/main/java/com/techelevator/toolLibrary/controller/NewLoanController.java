@@ -56,9 +56,9 @@ public class NewLoanController {
 		}
 		
 		@RequestMapping( path={"/removeFromCart"} )
-		public String removeFromCart(@RequestParam("toolInventoryId") int toolInventoryId, HttpSession session) {
-			Tool addedTool = loanDAO.getToolByInventoryId(toolInventoryId);
-			((List<Tool>) session.getAttribute("shoppingCart")).remove(addedTool);
+		public String removeFromCart(@RequestParam("toolInventoryIndex") int toolInventoryIndex, HttpSession session) {
+			
+			((List<Tool>) session.getAttribute("shoppingCart")).remove(toolInventoryIndex);
 			return "cartView";  
 		}
 		

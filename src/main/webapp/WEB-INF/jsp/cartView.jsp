@@ -30,16 +30,17 @@
 		</tr>
 		
 		<c:forEach var="addedTool" items="${shoppingCart}"
-			varStatus="loopStatus">
+			varStatus="loop">
 
 			<c:url value="/removeFromCart" var="removeTools">
 				<c:param name="toolInventoryId" value="${addedTool.toolInventoryId}" />
+				<c:param name="toolInventoryIndex" value="${loop.index}" />
 			</c:url>
-
 			<tr>
 				<td><c:out value="${addedTool.toolName}" /></td>
 				<td><c:out value="${addedTool.toolCategoryName}" /></td>
 				<td><c:out value="${addedTool.toolDueDate}" /></td>
+				
 				<td><a href="${removeTools}"><c:out value="Remove From Cart" /> </a></td>
 				<!-- remove item from cart, do a redirect to this page & it will refresh without that item -->
 			</tr>

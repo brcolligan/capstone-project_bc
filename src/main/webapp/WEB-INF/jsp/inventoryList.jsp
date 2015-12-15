@@ -29,6 +29,7 @@
 			<th>Category</th>
 			<th>Period</th>
 		</tr>
+		<tr></tr>
 
 		<c:forEach var="tool" items="${toolList}" varStatus="loopStatus">
 
