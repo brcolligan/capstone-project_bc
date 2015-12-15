@@ -16,6 +16,13 @@
 
 	<h2>Available Inventory</h2>
 	
+	<div>
+		<c:url value="/viewCart" var="cartViewURL" />
+		<a href="${cartViewURL }">
+			<button type="button">Review Cart Contents</button>
+		</a>
+	</div>
+	
 	<table class="tableList">
 		<tr>
 			<th>Tool</th>
@@ -49,16 +56,6 @@
 		</c:forEach>
 	</table>
 
-	<a href="/tool-library-web/viewCart"><c:out
-			value="Go To Shopping Cart" /> </a>
-
-	<c:url value="/viewCart" var="cartViewURL" />
-
-	<div>
-		<form action=${cartViewURL } method="get">
-			<button type="button">Review Cart Contents</button>
-		</form>
-	</div>
 
 </body>
 </html>

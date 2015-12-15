@@ -7,6 +7,7 @@
 <c:url value="/img/logo.jpg" var="logoURL" />
     <img src="${logoURL}" id="logo" />
 </a>
+
 </div>
 
 
