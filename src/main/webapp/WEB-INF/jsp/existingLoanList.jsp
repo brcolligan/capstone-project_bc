@@ -22,15 +22,10 @@
 		<th>Rental Date</th>
 		<th>Due Date</th>
 		<th>Check <br>Cleaning Fee </th>
-		
-		
 		</tr>
-		
-		
-		
-		
+	
 		<c:forEach var="loan" items="${loanList}" varStatus="loopStatus">
-			<c:url value="/loanReturn" var="addLoanURL">
+			<c:url value="/loanReturn" var="loanReturnURL">
 			</c:url>
 				<c:choose>
 				<c:when test="${loopStatus.count % 2 == 0}">
@@ -40,13 +35,14 @@
 					<c:set var="itemClass" value="odd" />
 				</c:otherwise>
 			</c:choose>
+			
 			<tr class = "${itemClass}">
 				<td><c:out value="${loan.lastName}" /></td>
 				<td><c:out value="${loan.firstName}" /></td>
 				<td><c:out value="${loan.toolLoaned}" /></td>
 				<td><c:out value="${loan.dateOfLoan}" /></td>
 				<td><c:out value="${loan.expectedReturn}" /></td>
-				<td><form action="${addLoanURL}" method="GET">
+				<td><form action="${loanReturnURL}" method="GET">
 					<input type ="hidden" id = "loanId" name="loanId" value ="${loan.loanId}">
 					<input type="checkbox" id = "cleaningFee" name="cleaningFee" value="True">
 					<input type="submit" value="Return Loan"></form></td>

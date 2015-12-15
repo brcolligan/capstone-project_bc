@@ -20,13 +20,13 @@
 		<c:url value="/addTools" var="addTools" />
 			<a href="${addTools}"> 
 		<c:url value="/img/newLoan.jpg" var="newLoan" />
-   			<img src="${newLoan}" id="newLoan" />
+   			<img style = "max-width: 375px;" src="${newLoan}" id="newLoan" />
 			</a>
 			
 		<c:url value="/existingLoans" var="existingLoans" />
 			<a href="${existingLoans}"> 
 		<c:url value="/img/existingLoans.jpg" var="existingLoans" />
-    		<img src="${existingLoans}" id="existingLoans" />
+    		<img style = "max-width: 375px;" src="${existingLoans}" id="existingLoans" />
 			</a>
 	</div>
 	
