@@ -39,7 +39,7 @@
 			<th><c:out value="Late Fees" /></th>
 			<td><c:out value="${loan.lateFee }" /></td>
 		<tr>
-			<th><c:out value="Maintenence Fee" /></th>
+			<th><c:out value="Maintenance Fee" /></th>
 			<td><c:out value="${loan.maintenanceFee }" /></td>
 		<tr>
 			<th><c:out value="Cleaning Fee" /></th>
@@ -50,6 +50,8 @@
 	<c:url value="/processedReturn" var="processedReturnURL">
 		<c:param name="loanId" value="${loan.loanId}" />
 		<c:param name="cleaningFee" value="${cleaningFee}" />
+		<c:param name="lateFee" value="${loan.lateFee}" />
+		<c:param name="maintenanceFee" value="${loan.maintenanceFee}" />
 	</c:url>
 	<a href="${processedReturnURL }">
 		<button type="button">Finish</button>

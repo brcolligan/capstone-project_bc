@@ -40,7 +40,7 @@ public class ExistingLoanController {
 	
 		Loan loanById = loanDAO.getLoanById(loanId);
 		double cleaningFee = FeesCalculator.calculateCleaningFee(applyCleaningFee);
-		double lateFees = FeesCalculator.calculateLateFees(loanById.getExpectedReturn(),loanById.getEndDate(), loanById.getToolLoanPeriod());
+		double lateFees = FeesCalculator.calculateLateFees(loanById.getExpectedReturn(),loanById.getEndDate(), loanById.getToolLoanPeriod(), loanById.getToolCategoryName());
 		double maintenanceFee = FeesCalculator.calculateMaintenanceFees(loanById.getToolCategoryName());
 		
 		
@@ -63,6 +63,7 @@ public class ExistingLoanController {
 									@RequestParam("cleaningFee") double cleaningFee,
 									@RequestParam("lateFee") double lateFee,
 									@RequestParam("maintenanceFee") double maintenanceFee
+									
 			) {
 		loanDAO.updateReturnedItem(loanId, cleaningFee, lateFee, maintenanceFee);
 		return "redirect:/existingLoans";
