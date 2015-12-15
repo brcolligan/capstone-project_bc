@@ -23,9 +23,12 @@
 	</div>
 
 	<table class="tableList">
+		<tr>
 		<th>Tool</th>
 		<th>Category</th>
 		<th>Due Date</th>
+		</tr>
+		
 		<c:forEach var="addedTool" items="${shoppingCart}"
 			varStatus="loopStatus">
 
