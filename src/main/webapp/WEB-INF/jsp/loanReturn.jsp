@@ -45,6 +45,10 @@
 			<th><c:out value="Cleaning Fee" /></th>
 			<td><c:out value="${cleaningFee }" /></td>
 		</tr>
+		<tr>
+			<th><c:out value="Total Fees" /></th>
+			<td><c:out value="${cleaningFee+loan.maintenanceFee+loan.lateFee}" /></td>
+		</tr>
 	</table>
 
 	<c:url value="/processedReturn" var="processedReturnURL">
