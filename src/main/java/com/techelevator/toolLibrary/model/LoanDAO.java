@@ -69,7 +69,7 @@ public class LoanDAO {
 	
 	 public Loan getLoanById(int loanId) {
 		Loan existingLoan = new Loan();
-		String selectSQL = "SELECT loan.*, tool_category.name as tool_category_name FROM loan INNER JOIN tool_inventory ON loan.inventory_id = tool_inventory.tool_inventory_id INNER JOIN tool ON tool_inventory.tool_id = tool.tool_id INNER JOIN tool_category ON tool.tool_category_id = tool_category.tool_category_id WHERE loan_id = ?";
+		String selectSQL = "SELECT loan.*, tool.loan_period_in_days as toolLoanPeriod, tool_category.name as tool_category_name FROM loan INNER JOIN tool_inventory ON loan.inventory_id = tool_inventory.tool_inventory_id INNER JOIN tool ON tool_inventory.tool_id = tool.tool_id INNER JOIN tool_category ON tool.tool_category_id = tool_category.tool_category_id WHERE loan_id = ?";
 		 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL, loanId);
 		
@@ -169,6 +169,7 @@ public class LoanDAO {
 		existingLoan.setToolLoaned(results.getString("tool_name"));
 		existingLoan.setEndDate(loanEndDate);
 		existingLoan.setToolCategoryName(results.getString("tool_category_name"));
+		existingLoan.setToolLoanPeriod(results.getInt("toolLoanPeriod"));
 	}
 }
 

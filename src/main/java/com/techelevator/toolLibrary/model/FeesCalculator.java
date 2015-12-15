@@ -15,7 +15,8 @@ public class FeesCalculator {
 	private static final double gasPoweredMaintFee = 2.0d;
 	private double cleaningFee = 0.0d; // librarian discretion.
 	static double lateFees = 0.0d;
-
+	private static String currentToolCategoryName;
+	
 	
 	public static double calculateCleaningFee(boolean applyCleaningFee) {
 		if (applyCleaningFee) {
@@ -26,6 +27,7 @@ public class FeesCalculator {
 	}
 	
 	public static double calculateMaintenanceFees(String toolCategoryName) {
+		currentToolCategoryName = toolCategoryName;
 		String stringToCompare = "Gasoline Power Tool";
 		if (toolCategoryName.equals(stringToCompare)) {
 			return gasPoweredMaintFee;
@@ -34,11 +36,9 @@ public class FeesCalculator {
 		}
 	}
 
-	public static double calculateLateFees(LocalDate expectedReturn, LocalDate endDate) {
-
+	public static double calculateLateFees(LocalDate expectedReturn, LocalDate endDate, int toolLoanPeriod) {
 		long daysLate = DAYS.between(expectedReturn, endDate);
-
-		if (daysLate > 0 && tool.getToolLoanPeriod() == 1) {
+		if (daysLate > 0 && toolLoanPeriod == 1) {
 			lateFees += daysLate * dayRentalDailyLateFee;
 		}else if (daysLate > 0) {
 			if (tool.getToolCategoryName() == "Electric Power Tool"||tool.getToolCategoryName()=="Gasoline Power Tool") {

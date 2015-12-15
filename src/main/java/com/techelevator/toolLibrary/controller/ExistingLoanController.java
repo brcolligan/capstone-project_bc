@@ -40,7 +40,7 @@ public class ExistingLoanController {
 	
 		Loan loanById = loanDAO.getLoanById(loanId);
 		double cleaningFee = FeesCalculator.calculateCleaningFee(applyCleaningFee);
-		double lateFees = FeesCalculator.calculateLateFees(loanById.getExpectedReturn(),loanById.getEndDate());
+		double lateFees = FeesCalculator.calculateLateFees(loanById.getExpectedReturn(),loanById.getEndDate(), loanById.getToolLoanPeriod());
 		double maintenanceFee = FeesCalculator.calculateMaintenanceFees(loanById.getToolCategoryName());
 		
 		

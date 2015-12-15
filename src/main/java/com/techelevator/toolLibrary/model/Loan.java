@@ -20,6 +20,7 @@ public class Loan {
 	private double lateFee;
 	private double maintenanceFee;
 	private double cleaningFee;
+	private int toolLoanPeriod;
 
 	public int getLoanId() {
 		return loanId;
@@ -131,5 +132,14 @@ public class Loan {
 
 	public void setToolCategoryName(String toolCategoryName) {
 		this.toolCategoryName = toolCategoryName;
+	}
+
+	public void setToolLoanPeriod(int toolLoanPeriod) {
+		this.toolLoanPeriod = toolLoanPeriod;
+	}
+	
+	public int getToolLoanPeriod(){
+		return toolLoanPeriod;
+		
 	}
 }

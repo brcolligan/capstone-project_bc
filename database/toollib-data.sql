@@ -443,11 +443,11 @@ VALUES (nextval('seq_loan_id'), 188, 'Air Pump', '2015-12-08', '2015-12-15', nul
 (nextval('seq_loan_id'), 186, 'Router', '2015-12-08', '2015-12-15', null, 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
 (nextval('seq_loan_id'), 232, 'Leaf Blower, Gas', '2015-12-08', '2015-12-15',null, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
 (nextval('seq_loan_id'), 166, 'Hammer, Tack', '2015-12-08', '2015-12-15',null, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 227, 'Hatchet', '2015-12-9', '2015-12-16', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 290, 'Grass Shear', '2015-12-11', '2015-12-18',null, 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 280, 'Extension Pole, Fiberglass', '2015-12-09', '2015-12-16',null, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 84, 'Edger, Lawn, Gasoline', '2015-12-08', '2015-12-15',null, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
-(nextval('seq_loan_id'), 77,'Dolly, Furniture', '2015-12-12', '2015-12-19', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4);
+(nextval('seq_loan_id'), 227, 'Hatchet', '2015-12-9', '2015-12-13', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 290, 'Grass Shear', '2015-12-07', '2015-12-14',null, 'Jane', 'Smith', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 280, 'Extension Pole, Fiberglass', '2015-12-02', '2015-12-09',null, 'David', 'Jones', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 84, 'Edger, Lawn, Gasoline', '2015-12-01', '2015-12-07',null, 'Elizabeth', 'Bates', 'RT12345', '4401234567', 3, 5, 4),
+(nextval('seq_loan_id'), 77,'Dolly, Furniture', '2015-12-15', '2015-12-12', null, 'Dan', 'Evans', 'RT12345', '4401234567', 3, 5, 4);
 
 
 UPDATE tool_inventory SET tool_available = 'F' WHERE tool_inventory_id IN (188, 13, 92, 96, 125, 186, 232, 166, 227, 290, 280, 84, 77);
