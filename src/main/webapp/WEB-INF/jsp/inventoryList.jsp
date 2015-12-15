@@ -17,11 +17,11 @@
 	<h2>Available Inventory</h2>
 	
 	<table class="tableList">
-		<th>Tool</th>
-		<th>Category</th>
-		<th>Id</th>
-		<th>Period</th>
-		<th>Inventory Id</th>
+		<tr>
+			<th>Tool</th>
+			<th>Category</th>
+			<th>Period</th>
+		</tr>
 
 		<c:forEach var="tool" items="${toolList}" varStatus="loopStatus">
 
@@ -41,9 +41,9 @@
 			<tr class = "${itemClass}">
 				<td><c:out value="${tool.toolName}" /></td>
 				<td><c:out value="${tool.toolCategoryName}" /></td>
-				<td><c:out value="${tool.toolId}" /></td>
+			
 				<td><c:out value="${tool.toolLoanPeriod}" /></td>
-				<td><c:out value="${tool.toolInventoryId}" /></td>
+			
 				<td><a href="${addItemURL}"><c:out value="Add to Cart" /> </a></td>
 			</tr>
 		</c:forEach>
