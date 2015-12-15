@@ -22,8 +22,10 @@
 		<th>Rental Date</th>
 		<th>Due Date</th>
 		
-		<th>
 		</tr>
+		
+		
+		
 		
 		<c:forEach var="loan" items="${loanList}" varStatus="loopStatus">
 			<c:url value="/loanReturn" var="addLoanURL">
@@ -45,6 +47,7 @@
 				<td><c:out value="${loan.toolLoaned}" /></td>
 				<td><c:out value="${loan.dateOfLoan}" /></td>
 				<td><c:out value="${loan.expectedReturn}" /></td>
+				<td><form><input type="checkbox" id = "cleaning" name="cleaning" value="True"></form></td>
 				<td><a href="${addLoanURL}"><c:out value="Return Loan" /> </a></td>
 			</tr>
 			
