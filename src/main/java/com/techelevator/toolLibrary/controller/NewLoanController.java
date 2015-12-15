@@ -78,6 +78,7 @@ public class NewLoanController {
 				 newLoan.setInventoryId(toolItem.getToolInventoryId());
 				 newLoan.setLastName(lastName);
 				 newLoan.setPhoneNumber(phone);
+				 newLoan.setToolCategoryName(toolItem.getToolCategoryName());
 				 newLoan.setToolLoaned(toolItem.getToolName());
 				loanDAO.saveLoanItem(newLoan);
 			 }

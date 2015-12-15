@@ -8,6 +8,7 @@ public class Loan {
 	private int loanId;
 	private int inventory_id;
 	private String toolLoaned;
+	private String toolCategoryName;
 	private String firstName;
 	private String lastName;
 	private String driversLicense;
@@ -57,6 +58,10 @@ public class Loan {
 
 	public String getPhoneNumber() {
 		return phoneNumber;
+	}
+
+	public String getToolCategoryName() {
+		return toolCategoryName;
 	}
 
 	public void setLoanId(int loanId) {
@@ -121,5 +126,9 @@ public class Loan {
 
 	public void setCleaningFee(double cleaningFee) {
 		this.cleaningFee = cleaningFee;
+	}
+
+	public void setToolCategoryName(String toolCategoryName) {
+		this.toolCategoryName = toolCategoryName;
 	}
 }
