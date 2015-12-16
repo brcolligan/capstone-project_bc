@@ -15,6 +15,7 @@ public class Tool {
 	private int toolCategoryId;
 	private String toolCategoryName;
 	private int toolInventoryId;
+	private String toolClientId;
 
 	public Tool(String toolName, String toolDescription, int toolLoanPeriod, int toolId,
 		int toolCategoryId, String toolCategoryName, int toolInventoryId) {
@@ -26,6 +27,7 @@ public class Tool {
 		this.toolCategoryId = toolCategoryId;
 		this.toolCategoryName = toolCategoryName;
 		this.setToolInventoryId(toolInventoryId);
+		this.setToolClientId(toolClientId);
 	}
 
 	public int getToolId() {
@@ -88,5 +90,13 @@ public class Tool {
 
 	public void setToolInventoryId(int toolInventoryId) {
 		this.toolInventoryId = toolInventoryId;
+	}
+
+	public String getToolClientId() {
+		return toolClientId;
+	}
+
+	public void setToolClientId(String toolClientId) {
+		this.toolClientId = toolClientId;
 	}
 }
