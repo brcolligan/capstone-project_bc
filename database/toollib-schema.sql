@@ -22,7 +22,8 @@ CREATE SEQUENCE seq_tool_id;
 CREATE TABLE tool_inventory (
     tool_inventory_id integer primary key,
     tool_id integer not null references tool(tool_id),
-    tool_available boolean default 'T'
+    tool_available boolean default 'T',
+    tool_client_id varchar(20)
 );
 
 CREATE SEQUENCE seq_tool_inventory_id;
