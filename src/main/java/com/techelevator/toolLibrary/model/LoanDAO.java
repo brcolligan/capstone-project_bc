@@ -134,6 +134,7 @@ public class LoanDAO {
 			String toolClientId = results.getString("toolClientId");
 			
 			foundTool = new Tool (toolName, toolDescription, toolLoanPeriod, toolId, toolCategoryId, toolCategoryName, toolInventoryId);
+			foundTool.setToolClientId(toolClientId);
 			availableToolList.add(foundTool);
 		}		
 		return availableToolList;

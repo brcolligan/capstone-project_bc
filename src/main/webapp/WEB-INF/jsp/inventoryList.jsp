@@ -27,6 +27,7 @@
 		<tr>
 			<th>Tool<br>Name</th>
 			<th>Tool<br>Category</th>
+			<th>Tool ID</th>
 			<th>Loan<br>Period</th>
 			<th></th>
 		</tr>
@@ -50,7 +51,7 @@
 			<tr class = "${itemClass}">
 				<td><c:out value="${tool.toolName}" /></td>
 				<td><c:out value="${tool.toolCategoryName}" /></td>
-			
+				<td><c:out value="${tool.toolClientId}" /></td>
 				<td><c:out value="${tool.toolLoanPeriod}" /></td>
 			
 				<td><a href="${addItemURL}"><c:out value="Add to Cart" /> </a></td>
