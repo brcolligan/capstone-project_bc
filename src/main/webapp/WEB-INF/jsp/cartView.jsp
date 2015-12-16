@@ -35,6 +35,7 @@
 		<th>Tool</th>
 		<th>Category</th>
 		<th>Due Date</th>
+		<th>Item Id</th>
 		<th></th>
 		</tr>
 		
@@ -42,7 +43,7 @@
 			varStatus="loop">
 
 			<c:url value="/removeFromCart" var="removeTools">
-				<c:param name="toolInventoryId" value="${addedTool.toolInventoryId}" />
+				
 				<c:param name="toolInventoryIndex" value="${loop.index}" />
 			</c:url>
 			<tr>

@@ -23,15 +23,23 @@
 		</a>
 	</div>
 	
-	<table class="tableList">
+	<div id="users">
+	  	<input class="search" placeholder="Search" />
+	  	<button class="sort" data-sort="${tool.toolName}">
+	    	Sort by name
+	  	</button>
+	  	<button class="sort" data-sort="${tool.toolCategory}">
+	    	Sort by category
+	  	</button>
+	 	 <table>
+	    <tbody class="list">
 		<tr>
 			<th>Tool<br>Name</th>
 			<th>Tool<br>Category</th>
-			<th>Tool ID</th>
+			<th>Tool<br>Id</th>
 			<th>Loan<br>Period</th>
 			<th></th>
 		</tr>
-		<tr></tr>
 
 		<c:forEach var="tool" items="${toolList}" varStatus="loopStatus">
 
@@ -57,7 +65,11 @@
 				<td><a href="${addItemURL}"><c:out value="Add to Cart" /> </a></td>
 			</tr>
 		</c:forEach>
-	</table>
+	    </tbody>
+  </table>
+
+</div>
+<script src="http://listjs.com/no-cdn/list.js"></script>
 
 
 </body>
