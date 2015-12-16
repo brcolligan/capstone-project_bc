@@ -29,7 +29,7 @@
 			<th>Tool<br>Category</th>
 			<th>Tool ID</th>
 			<th>Loan<br>Period</th>
-			<th></th>
+			<th>Action</th>
 		</tr>
 		<tr></tr>
 

@@ -66,14 +66,16 @@ public class NewLoanController {
 		public String processLoan(HttpSession session, @RequestParam("firstName") String firstName, 
 														@RequestParam("lastName") String lastName,
 														@RequestParam("license") String licenseNum,
-														@RequestParam("phone") String phone,
-														@RequestParam("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
+														@RequestParam("phone") String phone
+													//	@RequestParam("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date
+														)
+														{
 
 			List<Tool> shoppingCart = (List<Tool>)session.getAttribute("shoppingCart");
 			LocalDate todaysDate = LocalDate.now();
 			for(Tool toolItem : shoppingCart) {
 				 Loan newLoan = new Loan();
-				 newLoan.setDateOfLoan(date);
+				 newLoan.setDateOfLoan(todaysDate);
 				 newLoan.setDriversLicense(licenseNum);
 				 try {
 					newLoan.setExpectedReturn(toolItem.getToolDueDate());

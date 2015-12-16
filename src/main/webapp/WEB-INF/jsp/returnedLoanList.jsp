@@ -20,9 +20,9 @@
 		<th>First<br>Name</th>
 		<th>Tool<br>Name</th>
 		<th>Rental<br>Date</th>
-		<th>Due<br>Date</th>
+		<th>Return<br>Date</th>
 		<th>Cleaning<br>Fee </th>
-		<th>Maintenance<br>Fee </th>
+		<th>Maint.<br>Fee </th>
 		<th>Late<br>Fee </th>
 		</tr>
 	
@@ -43,10 +43,10 @@
 				<td><c:out value="${loan.firstName}" /></td>
 				<td><c:out value="${loan.toolLoaned}" /></td>
 				<td><c:out value="${loan.dateOfLoan}" /></td>
-				<td><c:out value="${loan.expectedReturn}" /></td>
-				<td><c:out value="${loan.cleaningFee}" /></td>
-				<td><c:out value="${loan.maintenanceFee}" /></td>
-				<td><c:out value="${loan.lateFee}" /></td>
+				<td><c:out value="${loan.endDate}" /></td>
+				<td><c:out value="$ ${loan.cleaningFee}0" /></td>
+				<td><c:out value="$ ${loan.maintenanceFee}0" /></td>
+				<td><c:out value="$ ${loan.lateFee}0" /></td>
 
 			</tr>
 			

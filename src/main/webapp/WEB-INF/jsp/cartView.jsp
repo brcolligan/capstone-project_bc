@@ -66,9 +66,10 @@
 				<input type="hidden" value="${shoppingCart }" />
 			</div>
 
-			<div class="fieldGroup">
+			<!--<div class="fieldGroup">
 				<input type="text" name="date" id="date" placeholder="yyyy-mm-dd" required />
-			</div>
+			</div> 
+			-->
 
 			<div class="fieldGroup">
 				<input type="text" name="firstName" id="firstName" placeholder="First Name" required/> 

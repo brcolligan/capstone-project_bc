@@ -42,19 +42,19 @@
 		</tr>
 		<tr>
 			<th><c:out value="Late Fees" /></th>
-			<td><c:out value="${loan.lateFee }" /></td>
+			<td><c:out value="$ ${loan.lateFee }0" /></td>
 		</tr>
 		<tr>
 			<th><c:out value="Maintenance Fee" /></th>
-			<td><c:out value="${loan.maintenanceFee }" /></td>
+			<td><c:out value="$ ${loan.maintenanceFee }0" /></td>
 		</tr>
 		<tr>
 			<th><c:out value="Cleaning Fee" /></th>
-			<td><c:out value="${cleaningFee }" /></td>
+			<td><c:out value="$ ${cleaningFee }0" /></td>
 		</tr>
 		<tr>
 			<th><c:out value="Total Fees" /></th>
-			<td><c:out value="${cleaningFee+loan.maintenanceFee+loan.lateFee}" /></td>
+			<td><c:out value="$ ${cleaningFee+loan.maintenanceFee+loan.lateFee}0" /></td>
 		</tr>
 	</table>
 
