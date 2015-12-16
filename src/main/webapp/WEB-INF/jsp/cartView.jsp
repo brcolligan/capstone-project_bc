@@ -27,6 +27,7 @@
 		<th>Tool</th>
 		<th>Category</th>
 		<th>Due Date</th>
+		<th></th>
 		</tr>
 		
 		<c:forEach var="addedTool" items="${shoppingCart}"

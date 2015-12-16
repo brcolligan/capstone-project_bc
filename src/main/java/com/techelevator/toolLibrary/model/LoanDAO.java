@@ -180,7 +180,10 @@ public class LoanDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
 		while (results.next()) {
 			Loan returnedLoan = new Loan();
-			populateLoanAttributes(returnedLoan, results);			
+			populateLoanAttributes(returnedLoan, results);
+				returnedLoan.setLateFee(results.getDouble("late_fee"));
+				returnedLoan.setMaintenanceFee(results.getDouble("maintenance_fee"));
+				returnedLoan.setCleaningFee(results.getDouble("cleaning_fee"));
 				oldLoanList.add(returnedLoan);
 		}
 		return oldLoanList;

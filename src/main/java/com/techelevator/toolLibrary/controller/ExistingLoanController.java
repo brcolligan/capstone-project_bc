@@ -69,7 +69,6 @@ public class ExistingLoanController {
 		return "redirect:/existingLoans";
 	}
 	
-	
 	@RequestMapping( path={"/returnedLoanList"} )
 	public String returnedLoans (Map<String, Object> model) {
 		List<Loan> oldLoanList = loanDAO.getListOfOldLoans();
