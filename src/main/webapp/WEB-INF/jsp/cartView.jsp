@@ -17,9 +17,13 @@
 
 	<h2>Tools in your Cart</h2>
 	<c:url value="/addTools" var="addTools"></c:url>
+	<c:url value="/clearCart" var="clearCart"></c:url>
 
 	<div>
 		<a href="${addTools}">add more items</a>
+	</div>
+	<div>
+		<a href="${clearCart}">Clear Toolbox</a>
 	</div>
 
 	<table class="tableList">

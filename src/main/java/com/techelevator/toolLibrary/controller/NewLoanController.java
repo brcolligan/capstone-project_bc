@@ -102,4 +102,9 @@ public class NewLoanController {
 		public String reviewLoan() {
 			return "redirect: homePage";  
 		}
+		@RequestMapping( path={"/clearCart"} )
+		public String clearCart (HttpSession session){
+			session.invalidate();
+			return "cartView";  
+		}
 	}

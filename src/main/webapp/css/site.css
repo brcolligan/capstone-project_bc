@@ -25,9 +25,9 @@ html, body {
 }
 
 html {
-    display: table;
+    background: url("background.jpg") black;
     margin: auto;
-    background: url("woodBackground.jpg") black;
+    
   
 }
 img {
@@ -46,7 +46,6 @@ img {
     
 }
 .header-banner {
-	
 	background-color: #004011;
 	width: 800px;
 	
