@@ -20,10 +20,14 @@
 	<c:url value="/clearCart" var="clearCart"></c:url>
 
 	<div>
-		<a href="${addTools}">add more items</a>
+		<a href="${addTools}">
+		<button type="button">Add More Tools</button>
+		</a>
 	</div>
 	<div>
-		<a href="${clearCart}">Clear Toolbox</a>
+		<a href="${clearCart}">
+		<button type="button">Clear The Toolbox</button>
+		</a>
 	</div>
 
 	<table class="tableList">
