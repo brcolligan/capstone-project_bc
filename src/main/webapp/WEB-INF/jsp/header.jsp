@@ -11,10 +11,7 @@
 </div>
 
 
-<div id="content">
-    
-    <h1><c:out value="${ param.pageTitle }" /></h1>
-    </div>
+
     
     
 <!--  commented out. The below code can be used for a horizontal navigation bar if needed 
