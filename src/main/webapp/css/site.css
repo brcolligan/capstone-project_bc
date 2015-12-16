@@ -18,7 +18,7 @@
 html, body {
 	
     height: 100%;
-   
+   font-family:sans-serif;
     width: 800px;
      
     
@@ -42,7 +42,7 @@ img {
 
 #content {
  
-   
+   font-family:sans-serif;
     padding : 1em;
     color : black;
     text-align: center;
@@ -53,7 +53,7 @@ img {
 .header-banner {
 	background-color: #004011;
 	width: 800px;
-	
+	font-family:sans-serif;
 	
 }
 .tableList .even {
@@ -62,6 +62,7 @@ img {
 
 .footer-banner {
 	background-color: #C8811A;
+	font-family:sans-serif;
 }
 
 .homeSelection {
@@ -69,6 +70,7 @@ img {
     padding : 1em;
     background-color : #7fbf90;
     border: 3px solid #000000; 
+    font-family:sans-serif;
     
 }
 
@@ -79,6 +81,7 @@ img {
 	width : 800px;
 	text-align: center;
 	padding : 0px;
+	font-family:sans-serif;
 	
 }
 
@@ -97,6 +100,7 @@ img {
 	background-color : #7fbf90;
 	vertical-align: middle;
 	text-align: center;
+	font-family:sans-serif;
 	
 	
 }
@@ -109,26 +113,30 @@ body {
     color : black;
     display: table-cell;
     vertical-align: middle;
+    font-family:sans-serif;
     
 }
 
 a {
 	color : #000560;
+	font-family:sans-serif;
 }
 
 a:visited {
 	color : #6E6F70;
+	font-family:sans-serif;
 }
 
 h2 {
 	text-align: center;
-	
+	font-family:sans-serif;
 	background-color :#105f25;
 	color: #93f2a9;
 	text-shadow: 1px 4px 2px #333;
 }
 .fieldGroup {
 	margin-bottom : 8px;
+	font-family:sans-serif;
 }
 
 
