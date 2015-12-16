@@ -6,33 +6,28 @@
 <meta charset="UTF-8">
 <c:url value="/css/site.css" var="cssURL" />
 <link rel="stylesheet" type="text/css" href="${cssURL}">
-<title>Loan Return Page</title>
+<title>Previous Loans</title>
 </head>
 
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp">
-		<jsp:param name="pageTitle" value="Active Loans" />
+		<jsp:param name="pageTitle" value="Previous Loans" />
 	</jsp:include>
-	
-	<div>
-		<c:url value="/returnedLoanList" var="returnedLoansURL" />
-		<a href="${returnedLoansURL }">
-			<button type="button">View Previous Loans</button>
-		</a>
-	</div>
 
 	<table class="tableList">
 		<tr>
-		<th>Last Name</th>
-		<th>First Name</th>
-		<th>Tool Name</th>
-		<th>Rental Date</th>
-		<th>Due Date</th>
-		<th>Cleaning Fee </th>
+		<th>Last<br>Name</th>
+		<th>First<br>Name</th>
+		<th>Tool<br>Name</th>
+		<th>Rental<br>Date</th>
+		<th>Due<br>Date</th>
+		<th>Cleaning<br>Fee </th>
+		<th>Maintenance<br>Fee </th>
+		<th>Late<br>Fee </th>
 		</tr>
 	
-		<c:forEach var="loan" items="${loanList}" varStatus="loopStatus">
-			<c:url value="/loanReturn" var="loanReturnURL">
+		<c:forEach var="loan" items="${oldLoanList}" varStatus="loopStatus">
+			<c:url value="/oldLoanReturn" var="oldLoanReturnURL">
 			</c:url>
 				<c:choose>
 				<c:when test="${loopStatus.count % 2 == 0}">
@@ -49,11 +44,10 @@
 				<td><c:out value="${loan.toolLoaned}" /></td>
 				<td><c:out value="${loan.dateOfLoan}" /></td>
 				<td><c:out value="${loan.expectedReturn}" /></td>
-				<td><form action="${loanReturnURL}" method="GET">
-					<input type ="hidden" id = "loanId" name="loanId" value ="${loan.loanId}">
-					<input type="radio" name="cleaningFee" value="true">Yes
-					<input type="radio" name="cleaningFee" value="false" checked>No
-					<input type="submit" value="Return Loan"></form></td>
+				<td><c:out value="${loan.cleaningFee}" /></td>
+				<td><c:out value="${loan.maintenanceFee}" /></td>
+				<td><c:out value="${loan.lateFee}" /></td>
+
 			</tr>
 			
 		</c:forEach>

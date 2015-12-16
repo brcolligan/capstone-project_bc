@@ -171,5 +171,19 @@ public class LoanDAO {
 		existingLoan.setToolCategoryName(results.getString("tool_category_name"));
 		existingLoan.setToolLoanPeriod(results.getInt("toolLoanPeriod"));
 	}
+	
+	public List<Loan> getListOfOldLoans(){ //exclude loans that are complete
+		List<Loan> oldLoanList = new ArrayList<>();
+
+		String selectSQL = "SELECT loan.*, tool_category.name as tool_category_name, tool.loan_period_in_days as toolLoanPeriod FROM loan INNER JOIN tool_inventory ON loan.inventory_id = tool_inventory.tool_inventory_id INNER JOIN tool ON tool_inventory.tool_id = tool.tool_id INNER JOIN tool_category ON tool.tool_category_id = tool_category.tool_category_id WHERE loan_end_date IS NOT NULL ORDER BY loan_due_date asc, user_last_name asc, user_first_name asc";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(selectSQL);
+		while (results.next()) {
+			Loan returnedLoan = new Loan();
+			populateLoanAttributes(returnedLoan, results);			
+				oldLoanList.add(returnedLoan);
+		}
+		return oldLoanList;
+	}
 }
 
