@@ -52,7 +52,7 @@
 				<td><c:out value="${tool.toolName}" /></td>
 				<td><c:out value="${tool.toolCategoryName}" /></td>
 				<td><c:out value="${tool.toolClientId}" /></td>
-				<td><c:out value="${tool.toolLoanPeriod}" /></td>
+				<td><c:out value="${tool.toolLoanPeriod} days" /></td>
 			
 				<td><a href="${addItemURL}"><c:out value="Add to Cart" /> </a></td>
 			</tr>
