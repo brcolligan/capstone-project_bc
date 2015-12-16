@@ -135,6 +135,10 @@ h2 {
     width : 800px;
 }
 
+th {
+	color : #93f2a9;
+	background-color :#105f25;
+}
 /*
 
 div.insertBox {

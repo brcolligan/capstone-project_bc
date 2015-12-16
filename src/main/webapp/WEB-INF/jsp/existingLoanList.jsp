@@ -23,12 +23,12 @@
 
 	<table class="tableList">
 		<tr>
-		<th>Last Name</th>
-		<th>First Name</th>
-		<th>Tool Name</th>
-		<th>Rental Date</th>
-		<th>Due Date</th>
-		<th>Cleaning Fee </th>
+		<th>Last<br>Name</th>
+		<th>First<br>Name</th>
+		<th>Tool<br>Name</th>
+		<th>Rental<br>Date</th>
+		<th>Due<br>Date</th>
+		<th>Cleaning<br>Fee </th>
 		</tr>
 	
 		<c:forEach var="loan" items="${loanList}" varStatus="loopStatus">

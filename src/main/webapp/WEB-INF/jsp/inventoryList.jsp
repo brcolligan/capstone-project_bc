@@ -25,9 +25,10 @@
 	
 	<table class="tableList">
 		<tr>
-			<th>Tool</th>
-			<th>Category</th>
-			<th>Period</th>
+			<th>Tool<br>Name</th>
+			<th>Tool<br>Category</th>
+			<th>Loan<br>Period</th>
+			<th></th>
 		</tr>
 		<tr></tr>
 
