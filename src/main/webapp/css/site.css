@@ -39,14 +39,9 @@ header.img {}
 	width: 800px;
 }
 
-.icon {
-	max-width: 15px;
-}
-
-
 
 .header-banner {
-	background-color: #004011;
+	
 	width: 800px;
 	font-family:sans-serif;
 	border-radius: 6px;
