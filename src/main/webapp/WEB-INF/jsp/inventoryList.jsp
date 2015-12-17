@@ -54,7 +54,11 @@
 				<td><c:out value="${tool.toolClientId}" /></td>
 				<td><c:out value="${tool.toolLoanPeriod} days" /></td>
 			
-				<td><a href="${addItemURL}"><c:out value="Add to Cart" /> </a></td>
+				<td> <a href="${addItemURL}">
+				<c:url value="/img/toolbox-icon.png" var="toolboxIcon" />
+    			<img src="${toolboxIcon}" id="toolboxIcon"/></a></td>
+			
+		
 			</tr>
 		</c:forEach>
 	</table>

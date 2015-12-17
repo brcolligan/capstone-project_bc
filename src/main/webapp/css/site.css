@@ -17,15 +17,15 @@
 .color-secondary-2-4 { color: #C8531A } */
 html, body {
 	
-    height: 100%;
-   font-family:sans-serif;
-    width: 800px;
+	height: 100%;
+	font-family:sans-serif;
+	width: 800px;
      
     
 }
 
 html {
-     background: url("background.jpg");
+    background: url("background.jpg") black;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -35,41 +35,31 @@ html {
     
   
 }
-img {
-	
+header.img {}
 	width: 800px;
 }
-
-#content {
- 
-   font-family:sans-serif;
-    padding : 1em;
-    color : black;
-    text-align: center;
-    background-color : #c68e69;
-    
-    
+table.img {}
+	width: 50px;
 }
+
+
+
 .header-banner {
 	background-color: #004011;
 	width: 800px;
 	font-family:sans-serif;
+	border-radius: 6px;
 	
 }
 .tableList .even {
 	background-color : #DE8564;
 }
 
-.footer-banner {
-	background-color: #C8811A;
-	font-family:sans-serif;
-}
 
 .homeSelection {
     text-align: center;
     padding : 1em;
-    background-color : #7fbf90;
-    border: 3px solid #000000; 
+    background-color : #7fbf90; 
     font-family:sans-serif;
     
 }
@@ -96,46 +86,51 @@ img {
 }
 
 .form {
+	padding:4px; 
 	margin: 0 auto; 
 	background-color : #7fbf90;
 	vertical-align: middle;
 	text-align: center;
 	font-family:sans-serif;
+	border-radius: 6px;
 	
 	
 }
 ;
 
 body {
-	
-	
-    background-color : #909090;
+
     color : black;
     display: table-cell;
     vertical-align: middle;
     font-family:sans-serif;
+    vertical-align: middle;
+
+    
     
 }
 
 a {
-	color : #000560;
+	color : #ff7f00;
 	font-family:sans-serif;
 }
 
 a:visited {
-	color : #6E6F70;
-	font-family:sans-serif;
+	color : #ff7f00;
+	
 }
 
 h2 {
+	padding:4px; 
 	text-align: center;
 	font-family:sans-serif;
 	background-color :#105f25;
 	color: #93f2a9;
 	text-shadow: 1px 4px 2px #333;
+	border-radius: 6px;
 }
 .fieldGroup {
-	margin-bottom : 8px;
+	margin: 8px;
 	font-family:sans-serif;
 }
 
@@ -163,6 +158,7 @@ th {
   font-family:sans-serif;
 }
 td {
+	border-radius: 6px;
   padding:4px; 
   border:solid 1px #eee;
   text-decoration: none;
