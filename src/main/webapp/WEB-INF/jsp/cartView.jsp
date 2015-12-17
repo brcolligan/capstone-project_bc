@@ -20,21 +20,17 @@
 	<c:url value="/clearCart" var="clearCart"></c:url>
 
 
-		<a href="${addTools}">
-				<c:url value="/img/add-icon.png" var="addIcon" />
-    			<img align="right" src="${addIcon}" id="addIcon"/></a> 
-<p></p>
-    	<a href="${clearCart}">
-				<c:url value="/img/removeAll-icon.png" var="removeAllIcon" />
-    			<img align="right"  src="${removeAllIcon}" id="removeAllIcon"/></a>		
-
-
+	
 	<table class="tableList">
 		<tr>
-		<th>Tool<br>Name</th>
+		<th><a href="${addTools}">
+				<c:url value="/img/add-icon.png" var="addIcon" />
+    			<img align="right" src="${addIcon}" id="addIcon"/></a>Tool<br>Name</th>
 		<th>Tool<br>Category</th>
 		<th>Due<br>Date</th>
-		<th>Remove<br>Item</th>
+		<th ><a href="${clearCart}">
+				<c:url value="/img/removeAll-icon.png" var="removeAllIcon" />
+    			<img align="right"  src="${removeAllIcon}" id="removeAllIcon"/></a>Remove<br>Item</th>
 		</tr>
 		
 		<c:forEach var="addedTool" items="${shoppingCart}"
