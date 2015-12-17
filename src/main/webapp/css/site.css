@@ -109,12 +109,14 @@ body {
 }
 
 a {
-	color : #ff7f00;
+	color : #93f2a9;
 	font-family:sans-serif;
+	text-decoration: none;
 }
 
 a:visited {
-	color : #ff7f00;
+	color : #93f2a9;
+	text-decoration: none;
 	
 }
 

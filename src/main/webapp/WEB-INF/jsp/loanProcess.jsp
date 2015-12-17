@@ -21,7 +21,7 @@
 	
 
 	<c:url value="/homePage" var="homePageURL" />
-	<a href="${homePageURL}">Click here to return to the Homepage.</a> 
+	<h2><a href="${homePageURL}">Click here to return to the Homepage.</a> </h2>
 
 </body>
 </html>
