@@ -56,7 +56,7 @@
 			
 				<td> <a href="${addItemURL}">
 				<c:url value="/img/toolbox-icon.png" var="toolboxIcon" />
-    			<img src="${toolboxIcon}" id="toolboxIcon"/></a></td>
+    			<img class = icon src="${toolboxIcon}" id="toolboxIcon"/></a></td>
 			
 		
 			</tr>

@@ -38,8 +38,9 @@ html {
 header.img {}
 	width: 800px;
 }
-table.img {}
-	width: 50px;
+
+.icon {
+	max-width: 15px;
 }
 
 
