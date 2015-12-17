@@ -81,7 +81,7 @@ All Fields Are Required
 			</div>
 
 			<div class="fieldGroup">
-				<input type="number" name="phone" id="phone" placeholder="Phone #" size = "10" required/>*
+				<input type="tel" name="phone" id="phone" placeholder="Phone #" size = "20" required/>*
 			</div>
 
 			<div class="fieldGroup">

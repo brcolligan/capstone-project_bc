@@ -54,7 +54,7 @@ public class Tool {
 		return toolCategoryName;
 	}
 
-	public LocalDate getToolDueDate() throws ParseException {
+	public LocalDate getToolDueDate() {
 		LocalDate today = LocalDate.now();
 		LocalDate toolDueDate = today.plusDays(toolLoanPeriod);
 		return toolDueDate;
