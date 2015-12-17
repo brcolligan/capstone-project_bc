@@ -35,7 +35,7 @@ html {
     
   
 }
-header.img {}
+header.img {
 	width: 800px;
 }
 
@@ -89,10 +89,11 @@ header.img {}
 	text-align: center;
 	font-family:sans-serif;
 	border-radius: 6px;
-	
-	
+
 }
-;
+.right{
+	vertical-align:right;
+}
 
 body {
 
@@ -124,6 +125,8 @@ h2 {
 	color: #93f2a9;
 	text-shadow: 1px 4px 2px #333;
 	border-radius: 6px;
+  	border:solid 1px #eee;
+  	border-color: black;
 }
 .fieldGroup {
 	margin: 8px;

@@ -55,8 +55,8 @@
 				<td><c:out value="${tool.toolLoanPeriod} days" /></td>
 			
 				<td> <a href="${addItemURL}">
-				<c:url value="/img/toolbox-icon.png" var="toolboxIcon" />
-    			<img class = icon src="${toolboxIcon}" id="toolboxIcon"/></a></td>
+				<c:url value="/img/add-icon.png" var="addIcon" />
+    			<img class = icon src="${addIcon}" id="addIcon"/></a></td>
 			
 		
 			</tr>
