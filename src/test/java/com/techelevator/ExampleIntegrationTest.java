@@ -3,6 +3,8 @@ package com.techelevator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.time.LocalDate;
+import java.time.temporal.TemporalUnit;
 import java.util.Date;
 
 import javax.sql.DataSource;
@@ -22,6 +24,8 @@ import com.techelevator.toolLibrary.model.Loan;
 /* Integration tests should extend com.techelevator.IntegrationTestBase.  This super-class
  * takes care of all of the Spring configuration and JDBC connection management. */
 public class ExampleIntegrationTest extends IntegrationTestBase {
+
+	private static final TemporalUnit DAYS = null;
 
 	/* by extending com.techelevator.IntegrationTestBase, this test is Spring-enabled. 
 	 * So, we can inject dependencies using the @Autowired annotation. */
@@ -53,14 +57,14 @@ public class ExampleIntegrationTest extends IntegrationTestBase {
 	
 	@Test
 	public void loan_records_can_be_saved_and_found() {
-		Date startDate = new Date();
-		Date dueDate = new Date();
-		Date endDate = new Date();
+		LocalDate startDate = LocalDate.now();
+		LocalDate dueDate = LocalDate.now().plusDays(7);
+		//LocalDate endDate = LocalDate.now().plus(14, DAYS);
 		
 		Loan expectedLoan = new Loan();
 		
 		expectedLoan.setDateOfLoan(startDate);
-		expectedLoan.setEndDate(endDate);
+		//expectedLoan.setEndDate(endDate);
 		expectedLoan.setExpectedReturn(dueDate);
 		expectedLoan.setDriversLicense("RT98765");
 		expectedLoan.setFirstName("John");

@@ -2,6 +2,7 @@ package com.techelevator;
 
 import static org.junit.Assert.*;
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.Calendar;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class LoanTest extends IntegrationTestBase {
 
 	@Test
 	public void loan_can_be_created() {
-		Date startDate = new Date();
-		Date dueDate = new Date();
-		Date endDate = new Date();
+		LocalDate startDate = LocalDate.now();
+		LocalDate dueDate = startDate.plusDays(7);
+		LocalDate endDate = startDate.plusDays(14);
 		Loan newLoan = new Loan();
 
 		newLoan.setDateOfLoan(startDate);

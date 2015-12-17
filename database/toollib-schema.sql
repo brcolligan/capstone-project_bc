@@ -39,7 +39,7 @@ CREATE TABLE loan (
 	user_first_name varchar(50),
 	user_last_name varchar(50),
 	user_license_num varchar(20),
-	user_phone_num varchar(10),
+	user_phone_num varchar(30),
 	late_fee real,
 	maintenance_fee real,
 	cleaning_fee real
