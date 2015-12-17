@@ -90,6 +90,9 @@ All Fields Are Required
 			</div>
 		</form>
 	</div>
+	<c:url value="/homePage" var="homePageURL" />
+	<h2><a href="${homePageURL}">Click here to return to the Homepage.</a> </h2>
+	
 	<!--  <jsp:include page="/WEB-INF/jsp/footer.jsp" />    -->
 </body>
 </html>
