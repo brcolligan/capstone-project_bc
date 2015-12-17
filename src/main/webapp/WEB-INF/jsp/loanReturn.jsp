@@ -66,9 +66,11 @@
 		<c:param name="lateFee" value="${loan.lateFee}" />
 		<c:param name="maintenanceFee" value="${loan.maintenanceFee}" />
 	</c:url>
-	<a href="${processedReturnURL }">
-		<button type="button">Finish</button>
-	</a>
+	
+	
+		<h2><a href="${processedReturnURL}">Process Loan Return</a> </h2>
+	
+	
 
 </body>
 </html>
