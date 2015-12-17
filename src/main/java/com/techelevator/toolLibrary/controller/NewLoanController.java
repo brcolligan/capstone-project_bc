@@ -77,12 +77,9 @@ public class NewLoanController {
 				 Loan newLoan = new Loan();
 				 newLoan.setDateOfLoan(todaysDate);
 				 newLoan.setDriversLicense(licenseNum);
-				 try {
-					newLoan.setExpectedReturn(toolItem.getToolDueDate());
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				newLoan.setExpectedReturn(toolItem.getToolDueDate());
+				
+			
 				 newLoan.setFirstName(firstName);
 				 newLoan.setInventoryId(toolItem.getToolInventoryId());
 				 newLoan.setLastName(lastName);

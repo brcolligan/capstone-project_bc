@@ -13,6 +13,8 @@
 	<jsp:include page="/WEB-INF/jsp/header.jsp">
 		<jsp:param name="pageTitle" value="Return Loan" />
 	</jsp:include>
+	
+	<h2>Loan Return Request</h2>
 
 	<table class="tableList">
 		<!-- var="loan" items="${loanList}" varStatus="loopStatus">         -->
