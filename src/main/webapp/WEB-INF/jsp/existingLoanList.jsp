@@ -13,13 +13,8 @@
 	<jsp:include page="/WEB-INF/jsp/header.jsp">
 		<jsp:param name="pageTitle" value="Active Loans" />
 	</jsp:include>
-	
-	<div>
-		<c:url value="/returnedLoanList" var="returnedLoansURL" />
-		<a href="${returnedLoansURL }">
-			<button type="button">View Previous Loans</button>
-		</a>
-	</div>
+
+	<h2>List of Open Loans</h2>
 
 	<table class="tableList">
 		<tr>
@@ -59,6 +54,8 @@
 		</c:forEach>
 		
 	</table>
+	<c:url value="/returnedLoanList" var="returnedLoansURL" />
+	<h2><a href="${returnedLoansURL}">View Previous Loans</a> </h2>
 	
 </body>
 </html>
