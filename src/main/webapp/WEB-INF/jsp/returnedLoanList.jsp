@@ -14,6 +14,7 @@
 		<jsp:param name="pageTitle" value="Previous Loans" />
 	</jsp:include>
 
+<h2>List of Previous Loans</h2>
 	<table class="tableList">
 		<tr>
 		<th>Last<br>Name</th>
@@ -53,6 +54,9 @@
 		</c:forEach>
 		
 	</table>
+	<c:url value="/homePage" var="homePageURL" />
+	<h2><a href="${homePageURL}">Click here to return to the Homepage.</a> </h2>
+	
 	
 </body>
 </html>
