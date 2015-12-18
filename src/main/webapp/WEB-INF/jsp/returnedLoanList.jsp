@@ -22,7 +22,7 @@
 		<th>Tool<br>Name</th>
 		<th>Rental<br>Date</th>
 		<th>Return<br>Date</th>
-		<th>Cleaning<br>Fee </th>
+		<th>Clean<br>Fee </th>
 		<th>Maint.<br>Fee </th>
 		<th>Late<br>Fee </th>
 		</tr>
@@ -54,7 +54,7 @@
 		</c:forEach>
 		
 	</table>
-	<c:url value="/existingLoanList" var="existingLoanList" />
+	<c:url value="/existingLoans" var="existingLoanList" />
 	<h2><a href="${existingLoanList}">View Open Loans</a> </h2>
 	
 	<c:url value="/homePage" var="homePageURL" />
