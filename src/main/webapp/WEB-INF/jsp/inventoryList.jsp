@@ -14,15 +14,11 @@
 		<jsp:param name="pageTitle" value="Inventory List" />
 	</jsp:include>
 
+	<c:url value="/viewCart" var="cartViewURL" />
+	<h2><a href="${cartViewURL }">Review Cart Contents</a></h2>
+	
 	<h2>Available Inventory</h2>
-	
-	<div>
-		<c:url value="/viewCart" var="cartViewURL" />
-		<a href="${cartViewURL }">
-			<button type="button">Review Cart Contents</button>
-		</a>
-	</div>
-	
+
 	<table class="tableList">
 		<tr>
 			<th>Tool<br>Name</th>
@@ -31,7 +27,6 @@
 			<th>Loan<br>Period</th>
 			<th>Add<br>Tool</th>
 		</tr>
-		<tr></tr>
 
 		<c:forEach var="tool" items="${toolList}" varStatus="loopStatus">
 
@@ -53,7 +48,6 @@
 				<td><c:out value="${tool.toolCategoryName}" /></td>
 				<td><c:out value="${tool.toolClientId}" /></td>
 				<td><c:out value="${tool.toolLoanPeriod} days" /></td>
-			
 				<td> <a href="${addItemURL}">
 				<c:url value="/img/add-icon.png" var="addIcon" />
     			<img class = icon src="${addIcon}" id="addIcon"/></a></td>

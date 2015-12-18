@@ -18,19 +18,17 @@
 	<h2>Items in Your Toolbox</h2>
 	<c:url value="/addTools" var="addTools"></c:url>
 	<c:url value="/clearCart" var="clearCart"></c:url>
-
-
 	
 	<table class="tableList">
 		<tr>
 		<th><a href="${addTools}">
-				<c:url value="/img/add-icon.png" var="addIcon" />
-    			<img align="right" src="${addIcon}" id="addIcon"/></a>Tool<br>Name</th>
+			<c:url value="/img/add-icon.png" var="addIcon" />
+    		<img align="right" src="${addIcon}" id="addIcon"/></a>Tool<br>Name</th>
 		<th>Tool<br>Category</th>
 		<th>Due<br>Date</th>
 		<th ><a href="${clearCart}">
-				<c:url value="/img/removeAll-icon.png" var="removeAllIcon" />
-    			<img align="right"  src="${removeAllIcon}" id="removeAllIcon"/></a>Remove<br>Item</th>
+			<c:url value="/img/removeAll-icon.png" var="removeAllIcon" />
+    		<img align="right"  src="${removeAllIcon}" id="removeAllIcon"/></a>Remove<br>Item</th>
 		</tr>
 		
 		<c:forEach var="addedTool" items="${shoppingCart}"
@@ -40,15 +38,14 @@
 				<c:param name="toolInventoryId" value="${addedTool.toolInventoryId}" />
 				<c:param name="toolInventoryIndex" value="${loop.index}" />
 			</c:url>
+			
 			<tr>
 				<td><c:out value="${addedTool.toolName}" /></td>
 				<td><c:out value="${addedTool.toolCategoryName}" /></td>
 				<td><c:out value="${addedTool.toolDueDate}" /></td>
-				
 				<td> <a href="${removeTools}">
 				<c:url value="/img/remove-icon.png" var="removeIcon" />
     			<img class = icon src="${removeIcon}" id="removeIcon"/></a></td>
-				<!-- remove item from cart, do a redirect to this page & it will refresh without that item -->
 			</tr>
 		</c:forEach>
 	</table>
@@ -59,16 +56,10 @@
 	
 		<c:url value="/checkoutTools" var="formActionURL" />
 		<form class="form" action="${formActionURL}" method="POST"  >
-All Fields Are Required
+			All Fields Are Required
 			<div class="fieldGroup">
 				<input type="hidden" value="${shoppingCart }" />
 			</div>
-
-			<!--<div class="fieldGroup">
-				<input type="text" name="date" id="date" placeholder="yyyy-mm-dd" required />
-			</div> 
-			-->
-
 			<div class="fieldGroup">
 				<input type="text" name="firstName" id="firstName" placeholder="First Name" required/>*
 			</div>
@@ -86,13 +77,11 @@ All Fields Are Required
 
 			<div class="fieldGroup">
 				<input type="submit" value="Submit Loan Request" />
-
 			</div>
 		</form>
 	</div>
 	<c:url value="/homePage" var="homePageURL" />
 	<h2><a href="${homePageURL}">Click here to return to the Homepage.</a> </h2>
 	
-	<!--  <jsp:include page="/WEB-INF/jsp/footer.jsp" />    -->
 </body>
 </html>

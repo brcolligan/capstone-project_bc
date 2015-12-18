@@ -54,6 +54,9 @@
 		</c:forEach>
 		
 	</table>
+	<c:url value="/existingLoanList" var="existingLoanList" />
+	<h2><a href="${existingLoanList}">View Open Loans</a> </h2>
+	
 	<c:url value="/homePage" var="homePageURL" />
 	<h2><a href="${homePageURL}">Click here to return to the Homepage.</a> </h2>
 	

@@ -1,27 +1,9 @@
-/*.color-primary-0 { color: #6E685E }	Main Primary color 
-.color-primary-1 { color: #909090 }
-.color-primary-2 { color: #000000 }
-.color-primary-3 { color: #FFE1B5 }
-.color-primary-4 { color: #C8811A }
 
-.color-secondary-1-0 { color: #6E6B5E }	Main Secondary color (1) 
-.color-secondary-1-1 { color: #909090 }
-.color-secondary-1-2 { color: #000000 }
-.color-secondary-1-3 { color: #FFEEB5 }
-.color-secondary-1-4 { color: #C89F1A }
-
-.color-secondary-2-0 { color: #6E635E }	Main Secondary color (2) 
-.color-secondary-2-1 { color: #909090 }
-.color-secondary-2-2 { color: #000000 }
-.color-secondary-2-3 { color: #FFCDB5 }
-.color-secondary-2-4 { color: #C8531A } */
 html, body {
 	
 	height: 100%;
 	font-family:sans-serif;
 	width: 800px;
-     
-    
 }
 
 html {
@@ -32,21 +14,18 @@ html {
     display: table;
     margin: auto;
     background-image: url("background.jpg");
-    
-  
 }
+
 header.img {
 	width: 800px;
 }
 
-
 .header-banner {
-	
 	width: 800px;
 	font-family:sans-serif;
 	border-radius: 6px;
-	
 }
+
 .tableList .even {
 	background-color : #DE8564;
 }
@@ -57,7 +36,6 @@ header.img {
     padding : 1em;
     background-color : #7fbf90; 
     font-family:sans-serif;
-    
 }
 
 .tableList {
@@ -68,17 +46,14 @@ header.img {
 	text-align: center;
 	padding : 0px;
 	font-family:sans-serif;
-	
 }
 
 .tableList tr {
 	padding : 5px;
-	
 }
 
 .tableList .even {
 	background-color : #daf8e3;
-
 }
 
 .form {
@@ -89,8 +64,8 @@ header.img {
 	text-align: center;
 	font-family:sans-serif;
 	border-radius: 6px;
-
 }
+
 .right{
 	vertical-align:right;
 }
@@ -103,9 +78,6 @@ body {
     font-family:sans-serif;
     vertical-align: middle;
     padding-bottom: 100px;
-
-    
-    
 }
 
 a {
@@ -117,7 +89,6 @@ a {
 a:visited {
 	color : #93f2a9;
 	text-decoration: none;
-	
 }
 
 h2 {
@@ -131,11 +102,11 @@ h2 {
   	border:solid 1px #eee;
   	border-color: black;
 }
+
 .fieldGroup {
 	margin: 8px;
 	font-family:sans-serif;
 }
-
 
 #logo {
     
@@ -159,13 +130,14 @@ th {
 .list {
   font-family:sans-serif;
 }
+
 td {
 	border-radius: 6px;
-  padding:4px; 
-  border:solid 1px #eee;
-  text-decoration: none;
- 	 height:30px;
- 	 font-family:sans-serif;
+	padding:4px; 
+	border:solid 1px #eee;
+	text-decoration: none;
+	height:30px;
+	font-family:sans-serif;
 }
 
 input {
@@ -174,10 +146,12 @@ input {
   padding:7px 14px;
   margin-bottom:10px
 }
+
 input:focus {
   outline:none;
   border-color:#aaa;
 }
+
 .sort {
   padding:8px 30px;
   border-radius: 6px;
@@ -188,13 +162,16 @@ input:focus {
   background-color: #28a8e0;
   height:30px;
 }
+
 .sort:hover {
   text-decoration: none;
   background-color:#1b8aba;
 }
+
 .sort:focus {
   outline:none;
 }
+
 .sort:after {
   display:inline-block;
   width: 0;
@@ -207,6 +184,7 @@ input:focus {
   top:-10px;
   right:-5px;
 }
+
 .sort.asc:after {
   width: 0;
   height: 0;
@@ -218,6 +196,7 @@ input:focus {
   top:4px;
   right:-5px;
 }
+
 .sort.desc:after {
   width: 0;
   height: 0;
@@ -229,68 +208,3 @@ input:focus {
   top:-4px;
   right:-5px;
 }
-/*
-
-div.insertBox {
-    padding : 1em;
-    background-color : #DE8564;
-}
-
-div.insertBox h3 {
-    margin : 0;
-}
-
-div.planet {
-    overflow: auto;
-}
-
-div.planet img {
-    height : 250px;
-    width : 250px;
-    margin-right : 1em;
-    margin-bottom : 1em;
-    float : left;
-}
-
-
-
-input {
-	margin-right : 1em;
-}
-
-.errorMessage {
-	color : red;
-	text-align : center;
-}
-
-.copyright {
-	width : 800px;
-	color : white;
-	text-align : center;
-}
-
-.result {
-	font-size : 2em;
-}
-
-.topicList {
-	list-style-type : none;
-	border : 3px solid #7A2100;
-	padding : 0;
-}
-
-.topicList li {
-	padding : 5px;
-}
-
-.topicList .even {
-	background-color : #DE8564;
-}
-
-.forumComment {
-	border : 2px dotted #7A2100;
-	margin-left : 1em;
-	margin-bottom : 1em;
-	padding : 0 1em 0 1em;
-}
-*/

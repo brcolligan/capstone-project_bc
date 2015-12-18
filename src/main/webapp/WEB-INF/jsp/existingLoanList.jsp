@@ -54,12 +54,12 @@
 		</c:forEach>
 		
 	</table>
+	
 	<c:url value="/returnedLoanList" var="returnedLoansURL" />
 	<h2><a href="${returnedLoansURL}">View Previous Loans</a> </h2>
 	
 	<c:url value="/homePage" var="homePageURL" />
 	<h2><a href="${homePageURL}">Click here to return to the Homepage.</a> </h2>
-	
 	
 </body>
 </html>
