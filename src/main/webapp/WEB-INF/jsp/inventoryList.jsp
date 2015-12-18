@@ -15,7 +15,7 @@
 	</jsp:include>
 
 	<c:url value="/viewCart" var="cartViewURL" />
-	<h2><a href="${cartViewURL }">Review Cart Contents</a></h2>
+	<h2><a href="${cartViewURL }">Review Toolbox</a></h2>
 	
 	<h2>Available Inventory</h2>
 
